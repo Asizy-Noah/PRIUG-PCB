@@ -102,14 +102,6 @@
     border-radius: 50px;
 }
 
-
-/*** hero ***/
-@media (min-width: 992px) {
-    .hero {
-        margin-top: -120px;
-    }
-}
-
 .hero-carousel .owl-nav {
     position: absolute;
     top: 50%;
@@ -187,7 +179,7 @@ a {
   top: 0;
   left: 0;
   height: 2em;
-  background-color: rgba(0, 0, 0, 0.411);
+  background-color: var(--dark);
   padding: 5px 0;
   width: 100%;
   z-index: 1000; 
@@ -306,6 +298,7 @@ a {
   .nav__list {
     background-color: var(--black-color);
     padding-top: 1rem;
+    width: 100%;
   }
 }
 
@@ -321,7 +314,7 @@ a {
 }
 
 .nav__link:hover {
-  background-color: var(--black-color-light);
+  background-color: var(--dark);
 }
 
 /* Show menu */
