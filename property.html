@@ -26,9 +26,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Slick CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -46,7 +48,6 @@
             </div>
         </div>
         <!-- Spinner End -->
-
 
         <!-- Navbar Start -->
         <header class="header">
@@ -265,10 +266,13 @@
 
         <div class="property-container">
             <div class="property-details">
+
                 <h1>Beautiful 3 Bedroom House</h1>
                 
                 <div class="main-image">
                     <img src="img/property-1.jpg" alt="Gallery Image">
+                    <span class="status-badge">For Sale</span>
+                    <span class="price-badge">$250,000</span>
                     <div class="image-overlay">
                         <a href="gallery.html">View Images</a>
                         <span>5 Images</span>
@@ -290,33 +294,141 @@
                 </div>
                 
                 <div class="listed-by">
-                    <h2>Listed By</h2>
+                    <h3>Agent</h3>
                     <div class="agent-card">
-                        <img src="agent.jpg" class="agent-pic" alt="Agent Image">
-                        <div>
+                        <div class="img">
+                            <img src="img/team-1.jpg" class="agent-pic" alt="Agent Image">
+                        </div>
+                        <div class="agent-details">
                             <a href="#" class="agent-name">John Doe</a>
+                            <span>Gayaza</span>
                             <button id="contact-agent">Contact Agent</button>
                         </div>
                     </div>
                 </div>
+
+                <div class="popup-overlay" id="popup-overlay">
+                    <div class="popup">
+                        <h3>Contact Agent</h3>
+                        <p>Kindly provide your phone number to proceed.</p>
+                        <input type="tel" id="user-phone" placeholder="Enter your phone number">
+                        <button id="call-agent" disabled>Call Agent</button>
+                        <span class="close-btn" id="close-popup">Close</span>
+                    </div>
+                </div>
             </div>
     
-            <div class="sidebar">
-                <h2>Other Properties</h2>
-                <div class="property-card">
-                    <img src="property1.jpg" alt="Property Image">
-                    <a href="#">Apartment in LA</a>
+            <div class="property-sidebar">
+                <h3>Other Properties by Same Agent</h3>
+                <div class="sidebar-cards">
+                    <div class="property-card">
+                        <div class="property-item sidebar-card  overflow-hidden">
+                            <div class="position-relative overflow-hidden">
+                                <a href=""><img class="img-fluid sidebar-img" src="img/property-2.jpg" alt=""></a>
+                                <div class="bg-primary text-white position-absolute start-0 top-0 m-2 py-1 px-2">For Rent</div>
+                            </div>
+                            <div class="p-3">
+                                <h6 class="text-primary mb-2">$12,345</h6>
+                                <a class="d-block h6 mb-1 property-title" href="property.html">Golden Urban House For Sell</a>
+                                <p class="small"><i class="fa fa-map-marker-alt text-primary me-2"></i>Location, City, Country</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="property-card">
+                        <div class="property-item sidebar-card overflow-hidden">
+                            <div class="position-relative overflow-hidden">
+                                <a href=""><img class="img-fluid sidebar-img" src="img/property-2.jpg" alt=""></a>
+                                <div class="bg-primary text-white position-absolute start-0 top-0 m-2 py-1 px-2">For Rent</div>
+                            </div>
+                            <div class="p-3">
+                                <h6 class="text-primary mb-2">$12,345</h6>
+                                <a class="d-block h6 mb-1 property-title" href="property.html">Golden Urban House For Sell</a>
+                                <p class="small"><i class="fa fa-map-marker-alt text-primary me-2"></i>Location, City, Country</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="property-card">
+                        <div class="property-item sidebar-card overflow-hidden">
+                            <div class="position-relative overflow-hidden">
+                                <a href=""><img class="img-fluid sidebar-img" src="img/property-2.jpg" alt=""></a>
+                                <div class="bg-primary text-white position-absolute start-0 top-0 m-2 py-1 px-2">For Rent</div>
+                            </div>
+                            <div class="p-3">
+                                <h6 class="text-primary mb-2">$12,345</h6>
+                                <a class="d-block h6 mb-1 property-title" href="property.html">Golden Urban House For Sell</a>
+                                <p class="small"><i class="fa fa-map-marker-alt text-primary me-2"></i>Location, City, Country</p>
+                            </div>
+                        </div>
+                        
+                    </div>
                 </div>
-                <div class="property-card">
-                    <img src="property2.jpg" alt="Property Image">
-                    <a href="#">House in Texas</a>
+                
+            </div>
+        </div>
+
+        <!-- Properties withing the same location -->
+
+        <div class="container my-4">
+            <h2 class="carousel-heading">Properties within the same Location</h2>
+    
+            <!-- Property Carousel -->
+            <div class="property-carousel">
+                <div class="property-item sidebar-card rounded overflow-hidden">
+                    <div class="position-relative overflow-hidden">
+                        <a href=""><img class="img-fluid sidebar-img" src="img/property-2.jpg" alt=""></a>
+                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-2 py-1 px-2">For Rent</div>
+                    </div>
+                    <div class="p-3">
+                        <h6 class="text-primary mb-2">$12,345</h6>
+                        <a class="d-block h6 mb-1 property-title" href="property.html">Golden Urban House For Sell</a>
+                    </div>
                 </div>
-                <div class="property-card">
-                    <img src="property3.jpg" alt="Property Image">
-                    <a href="#">Office Space in NY</a>
+                <div class="property-item sidebar-card rounded overflow-hidden">
+                    <div class="position-relative overflow-hidden">
+                        <a href=""><img class="img-fluid sidebar-img" src="img/property-2.jpg" alt=""></a>
+                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-2 py-1 px-2">For Rent</div>
+                    </div>
+                    <div class="p-3">
+                        <h6 class="text-primary mb-2">$12,345</h6>
+                        <a class="d-block h6 mb-1 property-title" href="property.html">Golden Urban House For Sell</a>
+                    </div>
+                </div>
+                <div class="property-item sidebar-card rounded overflow-hidden">
+                    <div class="position-relative overflow-hidden">
+                        <a href=""><img class="img-fluid sidebar-img" src="img/property-2.jpg" alt=""></a>
+                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-2 py-1 px-2">For Rent</div>
+                    </div>
+                    <div class="p-3">
+                        <h6 class="text-primary mb-2">$12,345</h6>
+                        <a class="d-block h6 mb-1 property-title" href="property.html">Golden Urban House For Sell</a>
+                    </div>
+                </div>
+                <div class="property-item sidebar-card rounded overflow-hidden">
+                    <div class="position-relative overflow-hidden">
+                        <a href=""><img class="img-fluid sidebar-img" src="img/property-2.jpg" alt=""></a>
+                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-2 py-1 px-2">For Rent</div>
+                    </div>
+                    <div class="p-3">
+                        <h6 class="text-primary mb-2">$12,345</h6>
+                        <a class="d-block h6 mb-1 property-title" href="property.html">Golden Urban House For Sell</a>
+                    </div>
+                </div>
+                <div class="property-item sidebar-card rounded overflow-hidden">
+                    <div class="position-relative overflow-hidden">
+                        <a href=""><img class="img-fluid sidebar-img" src="img/property-2.jpg" alt=""></a>
+                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-2 py-1 px-2">For Rent</div>
+                    </div>
+                    <div class="p-3">
+                        <h6 class="text-primary mb-2">$12,345</h6>
+                        <a class="d-block h6 mb-1 property-title" href="property.html">Golden Urban House For Sell</a>
+                    </div>
                 </div>
             </div>
         </div>
+           
+        <!-- Properties withing the same location End-->
         
 
         <!-- Footer Start -->
@@ -412,9 +524,73 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <!-- jQuery (Slick.js requires jQuery) -->
+    <!-- jQuery and Slick JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script>
+        document.getElementById("contact-agent").addEventListener("click", function() {
+            document.getElementById("popup-overlay").style.display = "flex";
+        });
+        
+        document.getElementById("close-popup").addEventListener("click", function() {
+            document.getElementById("popup-overlay").style.display = "none";
+        });
+        
+        document.getElementById("user-phone").addEventListener("input", function() {
+            let phoneInput = this.value.trim();
+            let callButton = document.getElementById("call-agent");
+            let phonePattern = /^\+?[0-9]{10,15}$/;
+            
+            if (phonePattern.test(phoneInput)) {
+                callButton.classList.add("active");
+                callButton.disabled = false;
+                callButton.onclick = function() {
+                    window.location.href = "tel:" + phoneInput;
+                };
+            } else {
+                callButton.classList.remove("active");
+                callButton.disabled = true;
+            }
+        });
+    </script>
+
+    <script>
+    $(document).ready(function(){
+            $('.property-carousel').slick({
+                infinite: true,
+                slidesToShow: 3,  // Show 3 items at a time
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000, // Moves every 2 seconds
+                dots: true,
+                arrows: true,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 2
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+    
 </body>
 
 </html>
