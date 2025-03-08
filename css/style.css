@@ -512,6 +512,229 @@ a {
     border: 1px dashed var(--primary) !important;
 }
 
+/* Property Page Start*/
+.property-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 20px auto;
+  gap: 20px;
+}
+
+.property-details {
+  flex: 2;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.main-image img {
+  width: 100%;
+  display: block;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.image-overlay a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  font-size: 18px;
+}
+
+.image-overlay span {
+  font-size: 14px;
+}
+
+.description, .utilities-list, .listed-by {
+  padding: 10px;
+  font-size: 18px;
+  color: #333;
+  background: #f0f0f0;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.sidebar {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* Property page end */
+
+/* Gallery Srart */
+.gallery-page-container {
+  height: 100svh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+/* Gallery Navigation */
+.gallery-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+  background: white;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-nav a, .gallery-nav button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #333;
+  padding: 10px; /* Added padding to ensure the icon is fully visible */
+}
+
+.gallery-nav a {
+  text-decoration: none;
+}
+
+/* Adjusting the main container */
+.slider-container {
+  width: 60%;
+  margin: auto; /* Adjusted margin for fixed navbar */
+  height: 80svh; /* Ensure it takes the full height */
+  overflow: hidden;
+}
+
+.main-slider {
+  width: 100%;
+  height: 65svh;
+}
+
+.slider-for {
+  width: 100%;
+  height: 100%;
+}
+
+.main-slider img {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+}
+
+
+
+/* Contact Slide */
+.contact-slide {
+  width: 100%;
+  height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.contact-slide button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Navigation Arrows */
+.prev-arrow, .next-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 20px;
+  z-index: 10;
+}
+
+.prev-arrow { left: 10px; }
+.next-arrow { right: 10px; }
+
+/* Thumbnail Slider */
+.thumbnail-slider {
+  margin-top: 15px;
+  padding: 10px 0;
+}
+
+.thumbnail-slider .thumb {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+  opacity: 0.4;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.thumbnail-slider .slick-current .thumb {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .slider-container {
+      width: 100%;
+      margin-top: 5em;
+  }
+  .main-slider img {
+      height: 400px;
+  }
+  .contact-slide {
+      height: 300px;
+  }
+  .thumbnail-slider .thumb {
+      width: 70px;
+      height: 60px;
+  }
+}
+/* Gallery End */
+
 
 /*** About ***/
 .about-img img {

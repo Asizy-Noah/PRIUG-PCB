@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Property Pictures</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+
+
+
+<div class="gallery-page-container">
+    <!-- Navigation Bar -->
+<div class="gallery-nav">
+    <a href="property.html"><i class='bx bx-arrow-back'></i></a>
+    <button onclick="shareGallery()"><i class='bx bx-share-alt'></i></button>
+</div>
+
+<div class="slider-container">
+    <!-- Main Slider -->
+    <div class="main-slider">
+        <button class="prev-arrow"><i class='bx bx-chevron-left'></i></button>
+        <div class="slider-for">
+            <div><img src="img/property-1.jpg" alt="Image 1"></div>
+            <div><img src="img/property-2.jpg" alt="Image 2"></div>
+            <div><img src="img/property-3.jpg" alt="Image 3"></div>
+            <div><img src="img/property-4.jpg" alt="Image 4"></div>
+            <div><img src="img/property-5.jpg" alt="Image 5"></div>
+            <div><img src="img/property-6.jpg" alt="Image 6"></div>
+            <div class="contact-slide" style="background-image: url('img/property-6.jpg');">
+                <div class="contact-overlay">
+                    <p>Like what you saw? Contact the agent to book</p>
+                    <button onclick="alert('Contacting agent...')">Contact the Agent</button>
+                </div>
+            </div>
+        </div>
+        <button class="next-arrow"><i class='bx bx-chevron-right'></i></button>
+    </div>
+
+    <!-- Thumbnail Slider -->
+    <div class="thumbnail-slider slider-nav">
+        <div><img src="img/property-1.jpg" alt="Thumbnail 1" class="thumb"></div>
+        <div><img src="img/property-2.jpg" alt="Thumbnail 2" class="thumb"></div>
+        <div><img src="img/property-3.jpg" alt="Thumbnail 3" class="thumb"></div>
+        <div><img src="img/property-4.jpg" alt="Thumbnail 4" class="thumb"></div>
+        <div><img src="img/property-5.jpg" alt="Thumbnail 5" class="thumb"></div>
+        <div><img src="img/property-6.jpg" alt="Thumbnail 6" class="thumb"></div>
+    </div>
+</div>
+</div>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    
+<script>
+    $(document).ready(function(){
+        $('.slider-for').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            prevArrow: $('.prev-arrow'),
+            nextArrow: $('.next-arrow'),
+            fade: true,
+            asNavFor: '.slider-nav',
+            infinite: false
+        });
+
+        $('.slider-nav').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            asNavFor: '.slider-for',
+            dots: false,
+            centerMode: true,
+            focusOnSelect: true
+        });
+    });
+
+    function shareGallery() {
+        if (navigator.share) {
+            navigator.share({
+                title: 'Property Gallery',
+                url: window.location.href
+            });
+        } else {
+            alert("Sharing not supported on this browser.");
+        }
+    }
+</script>
+
+</body>
+
+</html>
