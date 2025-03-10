@@ -972,6 +972,24 @@ a {
   font-size: 22px;
 }
 
+.agent-profile button {
+  padding: 8px 26px;
+  margin-top: 1em;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.agent-profile button i {
+  color: #FFD700;
+  margin-right: 0.5em;
+}
+
+.agent-profile button:hover {
+  background: #08775d;
+}
+
 .agent-map {
   width: 60%;
   height: 100%;
