@@ -122,7 +122,7 @@
       });
 
     /*=============== SHOW MENU ===============*/
-const showMenu = (toggleId, navId) =>{
+    const showMenu = (toggleId, navId) =>{
     const toggle = document.getElementById(toggleId),
           nav = document.getElementById(navId)
  
@@ -133,9 +133,10 @@ const showMenu = (toggleId, navId) =>{
         // Add show-icon to show and hide the menu icon
         toggle.classList.toggle('show-icon')
     })
- }
+    }
  
- showMenu('nav-toggle','nav-menu')
+    showMenu('nav-toggle','nav-menu')
+
     
 })(jQuery);
 
