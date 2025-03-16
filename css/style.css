@@ -636,7 +636,7 @@ a {
   transform: scale(110%);
 }
 
-/* Agwnt Contact Pop up Form Start */
+/* Agent Contact Pop up Form Start */
 
 .popup-overlay {
   display: none;
@@ -645,7 +645,7 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--primary-lighter);
   justify-content: center;
   align-items: center;
 }
@@ -657,10 +657,13 @@ a {
   max-width: 400px;
   text-align: center;
 }
+.star-rating{
+  margin: 1em;
+}
 .popup input {
   width: 100%;
   padding: 10px;
-  margin: 10px 0;
+  margin: 15px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -669,7 +672,7 @@ a {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background: gray;
+  background: var(--primary);
   color: white;
   cursor: not-allowed;
 }
@@ -680,8 +683,15 @@ a {
 .close-btn {
   cursor: pointer;
   display: block;
-  margin-top: 10px;
+  margin-top: 1em;
   color: var(--dark);
+}
+.popup-overlay .review-section {
+  border-top: 1px solid var(--primary-lighter);
+  padding-top: 1.5em;
+}
+.popup-overlay .review-form {
+  box-shadow: none;
 }
 
 /* Agwnt Contact Pop up Form End */
