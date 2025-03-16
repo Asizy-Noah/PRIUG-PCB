@@ -554,27 +554,27 @@
     <script src="js/main.js"></script>
     
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-          const options = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.6
-          };
-      
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                // Remove active class from all other cards
-                document.querySelectorAll('.airbnb-card, .most-booked-card').forEach(card => card.classList.remove('active-mobile'));
-                // Add active class to the current card
-                entry.target.classList.add('active-mobile');
-              }
-            });
-          }, options);
-      
-          // Attach observer to Airbnb and most booked cards
-          document.querySelectorAll('.airbnb-card, .most-booked-card').forEach(card => observer.observe(card));
-        });
+        document.addEventListener("DOMContentLoaded", function () {
+  const options = {
+    root: null, // viewport
+    rootMargin: '-50% 0px -50% 0px', // triggers when card crosses halfway (vertically centered)
+    threshold: 0 // As soon as it crosses that margin
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Remove active class from all cards
+        document.querySelectorAll('.airbnb-card, .most-booked-card').forEach(card => card.classList.remove('active-mobile'));
+        // Add active class to the card now at center
+        entry.target.classList.add('active-mobile');
+      }
+    });
+  }, options);
+
+  // Attach observer to Airbnb and Most Booked cards
+  document.querySelectorAll('.airbnb-card, .most-booked-card').forEach(card => observer.observe(card));
+});
       </script>
       
       

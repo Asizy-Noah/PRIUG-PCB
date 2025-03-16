@@ -5,13 +5,14 @@
     --light: #EFFDF5;
     --dark: #0E2E50;
     --header-height: 3.5rem;
+    --primary-lighter: #00b98ec7;
 
     /*========== Colors ==========*/
     /*Color mode HSL(hue, saturation, lightness)*/
     --black-color: #fff;
     --black-color-light:#fff;
     --black-color-lighten: #EFFDF5;
-    --white-color: #00B98E;
+    --white-color: #00b98ea8;
   
     /*========== Font and typography ==========*/
     /*.5rem = 8px | 1rem = 16px ...*/
@@ -848,7 +849,7 @@ a {
 }
 
 .carousel-caption {
-  background: rgba(0, 0, 0, 0.6);
+  background: var(--primary-lighter);
   padding: 15px;
   border-radius: 8px;
 }
@@ -910,7 +911,7 @@ a {
   right: 0;
   width: 60%;
   height: 40%;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--primary-lighter);
   color: white;
   padding: 10px;
   display: flex;
@@ -928,7 +929,7 @@ a {
   right: 0;
   width: 60%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--primary-lighter);
   color: white;
   padding: 10px;
   display: flex;
@@ -982,7 +983,7 @@ a {
   left: 5%;
   width: 90%;
   height: 30%;
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--primary-lighter);
   color: white;
   padding: 20px;
   transition: opacity 0.3s ease;
@@ -1001,7 +1002,7 @@ a {
   left: 5%;
   width: 90%;
   height: 70%;
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--primary-lighter);
   color: white;
   padding: 20px;
   opacity: 0;
@@ -1017,7 +1018,7 @@ a {
 
 .airbnb-details a {
     text-decoration: none;
-    color: #fff;
+    color: var(--dark);
 }
 
 .airbnb-card:hover .airbnb-details {
