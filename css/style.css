@@ -512,7 +512,7 @@ a {
   display: flex;
   justify-content: center;
   max-width: 1118px;
-  margin: 7em auto 1em;
+  margin: 6em auto 1em;
   gap: 20px;
 }
 
@@ -1100,6 +1100,7 @@ transform: scale(1.1);
 /*---- AirBnb Detail Page ----*/
 .host-review {
   max-width: 70%;
+  border: none;
 }
 .property-sidebar .most-booked-wrapper-2 {
   display: flex;
