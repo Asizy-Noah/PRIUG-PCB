@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Carihaven-Property name</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <!-- Slick CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* Sections */
+        .description, .amenities-list, .house-rules, .amenities, .reviews-section, .listed-by {
+            margin-bottom: 30px;
+        }
+
+        .description h2, .amenities-list h2, .house-rules h2, .amenities h2, .reviews-section h2, .booking h2, .host-container h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        /* amenities & Amenities list */
+        .amenities-list ul, .amenities ul, .house-rules ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .amenities-list li, .amenities li, .house-rules li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .amenities-list li::before, .amenities li::before, .house-rules li::before {
+            content: "✓";
+            color: green;
+            position: absolute;
+            left: 0;
+        }
+
+        /* --Booking Section-- */
+        .booking-section {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .booking-section h2 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .booking-section form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .booking-section label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .booking-section input {
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .booking-section input[type="date"] {
+            width: 100%;
+        }
+
+        .booking-section input[type="number"] {
+            width: 50%;
+        }
+
+        .booking-section button {
+            padding: 12px;
+            font-size: 16px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .booking-section button:hover {
+            background-color: #45a049;
+        }
+
+        /* --Booking Section End-- */
+
+        /*-- Host --*/
+        .host-container .agent-profile {
+            margin-top: 1em;
+        }
+
+        .host-container .agent-map iframe {
+            height: 480px;
+        }
+
+        .host-review {
+            max-width: 1118px;
+        }
+        /*-- Host End--*/
+    </style>
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Navbar Start -->
+        <header class="header">
+            <!-- Top Section -->
+            <div class="top-section container-fluid" >
+                <div class="top-section-nav">
+                  <div class="top-section-icons">
+                      <a href="#"><i class='bx bxl-whatsapp'></i></a>
+                      <a href="#"><i class='bx bxl-twitter'></i></a>
+                      <a href="#"><i class='bx bxl-facebook'></i></a>
+                  </div>
+                  <div class="top-section-nav-item language-dropdown">
+                      <!-- Language Dropdown -->
+                      <i class='bx bx-user'></i>
+                      <select>
+                        <option value="" >Sign in</option>
+                        <option value="" >Sign Up</option>
+                        <!-- <option value="fr">French</option> -->
+                      </select>
+                    </div>
+                </div>
+              </div>
+    
+             <nav class="nav">
+                <div class="nav__data">
+                   <a href="index.html" class="nav__logo">
+                    <i class="ri-home-office-line"></i>Carihaven
+                   </a>
+
+                   <div class="nav__search-btn" id="search-btn">
+                    <i class="ri-search-line"></i>
+                   </div>
+                   
+                   <div class="nav__toggle" id="nav-toggle">
+                      <i class="ri-menu-line nav__burger"></i>
+                      <i class="ri-close-line nav__close"></i>
+                   </div>
+                </div>
+    
+                <!--=============== NAV MENU ===============-->
+                <div class="nav__menu" id="nav-menu">
+                   <ul class="nav__list">
+                      <li><a href="index.html" class="nav__link">Home</a></li>
+                      <li><a href="airbnbs.html" class="nav__link">AirBnbs</a></li>
+    
+                      <li><a href="rentals.html" class="nav__link">Rentals</a></li>
+                      
+                      <!--=============== DROPDOWN 1 ===============-->
+                      <li class="dropdown__item">
+                         <div class="nav__link">
+                            For Sale <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                         </div>
+    
+                         <ul class="dropdown__menu">
+    
+                            <!--=============== DROPDOWN SUBMENU ===============-->
+                            <li class="dropdown__subitem">
+                               <div class="dropdown__link">
+                                <i class="ri-home-smile-line"></i> Houses 
+                               </div>
+                            </li>
+                            <li class="dropdown__subitem">
+                               <div class="dropdown__link">
+                                <i class="ri-building-3-fill"></i> Land 
+                               </div>
+                            </li>
+                            <li class="dropdown__subitem">
+                               <div class="dropdown__link">
+                                <i class="ri-building-line"></i> Appartments
+                               </div>
+                            </li>
+                         </ul>
+                      </li>
+    
+                      <!--=============== DROPDOWN 2 ===============-->
+                      <li class="dropdown__item">
+                         <div class="nav__link">
+                            Other Services <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                         </div>
+    
+                         <ul class="dropdown__menu">
+                            <li>
+                               <a href="#" class="dropdown__link">
+                                  Property Managemnt 
+                               </a>                          
+                            </li>
+    
+                            <li>
+                               <a href="#" class="dropdown__link">
+                                  Propoerty Renovation
+                               </a>
+                            </li>
+    
+                            <li>
+                               <a href="#" class="dropdown__link">
+                                  Construction Consultacy
+                               </a>
+                            </li>
+                         </ul>
+                      </li>
+                
+    
+                      <li><a href="contact.html" class="nav__link">Contact</a></li>
+
+                      <li><a href="#" class="nav__link search-btn-mobile" id="search-btn-mobile"><i class="ri-search-line"></i> Search</a></li>
+                   </ul>
+                </div>
+             </nav>
+          </header>
+        <!-- Navbar End -->
+
+        <div class="property-container">
+            <div class="property-details">
+        
+                <h1>Charming 3 Bedroom Airbnb with Scenic Views</h1>
+        
+                <div class="main-image">
+                    <img src="img/carousel-1.jpg" alt="Gallery Image">
+                    <span class="status-badge">Available</span>
+                    <span class="price-badge">$120 / night</span>
+                    <div class="image-overlay">
+                        <a href="gallery.html">View Images</a>
+                        <span>10 Images</span>
+                    </div>
+                </div>
+        
+                <div class="description">
+                    <h2>Description</h2>
+                    <p>Relax in this beautiful 3-bedroom Airbnb with stunning views and modern amenities. Perfect for family vacations or work retreats, located in a serene neighborhood close to key attractions.</p>
+                </div>
+        
+                <div class="amenities-list">
+                    <h2>Amenities</h2>
+                    <ul>
+                        <li>Free Wi-Fi</li>
+                        <li>Kitchen</li>
+                        <li>Washing Machine</li>
+                        <li>Parking on Premises</li>
+                        <li>Smart TV with Netflix</li>
+                        <li>Swimming Pool</li>
+                        <li>Air Conditioning</li>
+                    </ul>
+                </div>
+        
+                <div class="availability description">
+                    <h2>Availability</h2>
+                    <p>Available dates: <strong>March 5, 2025 - March 30, 2025</strong></p>
+                </div>
+        
+                <div class="booking">
+                    <h2>Make Reservation Now</h2>
+                    <div class="booking-section">
+                        <h3>Book Now</h3>
+                        <form >
+                            <label for="check-in">Check-in Date:</label>
+                            <input type="date" id="check-in" name="check-in">
+                            <label for="check-out">Check-out Date:</label>
+                            <input type="date" id="check-out" name="check-out">
+                            <label for="guests">Guests:</label>
+                            <input type="number" id="guests" name="guests" min="1" max="6" value="1">
+                            <button type="submit">Reserve</button>
+                        </form>
+                    </div>
+                </div>
+                
+
+                <!-- Agent Profile Section -->
+                <div class="host-container">
+                    <h3>Host</h3>
+                    <div class="container agent-profile">
+                        <!-- Left side: Agent details -->
+                        <div class="agent-details">
+                            <img src="img/team-1.jpg" alt="Agent Picture">
+                            <h2>John Doe</h2>
+                            <p>Kampala, Uganda</p>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button type="button" id="rate-host-btn"><i class="far fa-star"></i> Rate Host</button>
+                            <button id="contact-agent">Contact Host</button>
+                        </div>
+    
+                        <!-- Right side: Map -->
+                        <div class="agent-map">
+                            <iframe src="https://maps.google.com/maps?q=Kampala&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Carousel -->
+                <div class="container host-review reviews-section">
+                    <h3>Guest Reviews</h3>
+                    <div class="reviews-carousel">
+                        <div class="review-item">
+                            <h5>Great Agent</h5>
+                            <p>"Great agent! Helped me find my dream home."</p>
+                            <h4>– Sarah K.</h4>
+                        </div>
+                        <div class="review-item">
+                            <h5>Professional</h5>
+                            <p>"Very professional and responsive. Highly recommended."</p>
+                            <h4>– Michael T.</h4>
+                        </div>
+                        <div class="review-item">
+                            <h5>Easy going</h5>
+                            <p>"Smooth process from start to finish. Thank you!"</p>
+                            <h4>– Janet M.</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rate Host Popup -->
+                <div class="popup-overlay" id="rate-popup-overlay">
+                    <div class="popup rate-popup" id="rate-popup">
+                        <h3>Rate Host</h3>
+                        <div class="star-rating" id="star-rating">
+                            <i class="far fa-star" data-value="1"></i>
+                            <i class="far fa-star" data-value="2"></i>
+                            <i class="far fa-star" data-value="3"></i>
+                            <i class="far fa-star" data-value="4"></i>
+                            <i class="far fa-star" data-value="5"></i>
+                        </div>
+                        <button id="continue-review">Continue</button>
+
+                        <!-- Review Section (Hidden initially) -->
+                        <div class="review-section" id="review-section">
+                            <h3>Leave a Review</h3>
+                            <form class="review-form">
+                                <div class="">
+                                    <div class="reviewer-details">
+                                        <input type="text" placeholder="Your Name" required>
+                                        <input type="email" placeholder="E-mail- Will remain hidden" required>
+                                    </div>
+                                    <input type="text" placeholder="Review Title" required>
+                                    <textarea rows="5" placeholder="Write your review here..." required></textarea>
+                                </div>
+                                <button type="submit">Submit Review</button>
+                            </form>
+                        </div>
+
+                        <span class="close-btn" id="close-rate-popup">Close</span>
+                    </div>
+                </div>
+
+                <!-- Review Form -->
+                <!-- <div class="container review-form">
+                    <h3>Leave a Review</h3>
+                    <form>
+                        <div class="">
+                            <div class="reviewer-details">
+                                <input type="text" placeholder="Your Name" required>
+                                <input type="email" placeholder="E-mail- Will remain hidden" required>
+                            </div>
+                            <input type="text" placeholder="Review Title" required>
+                            <textarea rows="5" placeholder="Write your review here..." required></textarea>
+                        </div>
+                        <button type="submit">Submit Review</button>
+                    </form>
+                </div> -->
+
+                <!-- Contact Host Pop up Form -->
+                <div class="popup-overlay" id="popup-overlay">
+                    <div class="popup">
+                        <form action="" class="review-form">
+                            <h3>Contact Host</h3>
+                            <p>Please enter your message to the host.</p>
+                            <textarea placeholder="Write your message here..." rows="4"></textarea>
+                            <button id="send-message">Send Message</button>
+                            <span class="close-btn" id="close-popup">Close</span>
+                        </form>
+                    </div>
+                </div>
+        
+            </div>
+        
+            <div class="property-sidebar">
+                <h3>Other Airbnbs by Same Host</h3>
+                <div class="sidebar-cards">
+                    <div class="most-booked-wrapper-2">
+                        <!-- Card 1 -->
+                      <div class="most-booked-card">
+                        <img src="img/property-3.jpg" alt="Most Booked 1">
+                        <div class="most-booked-details">
+                          <h6>Beachfront Bungalow</h6>
+                          <p>$220/night</p>
+                          <a href="airbnb.html" class="check-btn">Check it out</a>
+                        </div>
+                        <div class="most-booked-details-static">
+                            <h6>Beachfront Bungalow</h6>
+                        </div>
+                      </div>
+                
+                      <!-- Card 2 -->
+                      <div class="most-booked-card">
+                        <img src="img/carousel-2.jpg" alt="Most Booked 2">
+                        <div class="most-booked-details">
+                          <h6>Urban Penthouse</h6>
+                          <p>$300/night</p>
+                          <a href="airbnb.html" class="check-btn">Check it out</a>
+                        </div>
+                        <div class="most-booked-details-static">
+                            <h6>Urban Penthouse</h6>
+                          </div>
+                      </div>
+                        <!-- Card 1 -->
+                      <div class="most-booked-card">
+                        <img src="img/property-3.jpg" alt="Most Booked 1">
+                        <div class="most-booked-details">
+                          <h6>Beachfront Bungalow</h6>
+                          <p>$220/night</p>
+                          <a href="airbnb.html" class="check-btn">Check it out</a>
+                        </div>
+                        <div class="most-booked-details-static">
+                            <h6>Beachfront Bungalow</h6>
+                        </div>
+                      </div>
+                
+                      <!-- Card 2 -->
+                      <div class="most-booked-card">
+                        <img src="img/carousel-2.jpg" alt="Most Booked 2">
+                        <div class="most-booked-details">
+                          <h6>Urban Penthouse</h6>
+                          <p>$300/night</p>
+                          <a href="airbnb.html" class="check-btn">Check it out</a>
+                        </div>
+                        <div class="most-booked-details-static">
+                            <h6>Urban Penthouse</h6>
+                          </div>
+                      </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+
+        
+        
+        <!-- Airbnbs within the same location -->
+        <div class="container my-4">
+            <h2 class="carousel-heading">Airbnbs within the same Location</h2>
+        
+            <div class="property-carousel">
+                <!-- Item 1 -->
+              <div class="carousel-item active">
+                <span class="status-badge">Available</span>
+                <img src="img/carousel-1.jpg" class="d-block w-100" alt="Airbnb 1">
+                <div class="carousel-caption">
+                  <h5>Cozy Beach House</h5>
+                  <p>$150/night</p>
+                  <a href="airbnb.html" class="check-btn">Check it out</a>
+                </div>
+              </div>
+    
+              <!-- Item 2 -->
+              <div class="carousel-item">
+                <span class="status-badge">Available</span>
+                <img src="img/carousel-2.jpg" class="d-block w-100" alt="Airbnb 2">
+                <div class="carousel-caption">
+                  <h5>Modern Apartment</h5>
+                  <p>$120/night</p>
+                  <a href="airbnb.html" class="check-btn">Check it out</a>
+                </div>
+              </div>
+    
+              <!-- Item 3 -->
+              <div class="carousel-item">
+                <span class="status-badge">Available</span>
+                <img src="img/property-2.jpg" class="d-block w-100" alt="Airbnb 3">
+                <div class="carousel-caption">
+                  <h5>Luxury Villa</h5>
+                  <p>$350/night</p>
+                  <a href="airbnb.html" class="check-btn">Check it out</a>
+                </div>
+              </div>
+                <!-- More items as needed -->
+            </div>
+        </div>
+        <!-- End Airbnbs within same location -->
+        
+        
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Get In Touch</h5>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Location, City, Country</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+256740 384876</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@priug.co.ug</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href="https://twitter.com/freewebsitecode"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://facebook.com/freewebsitecode"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://youtube.com/freewebsitecode"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://linkedin/in/freewebsitecode"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Quick Links</h5>
+                        <a class="btn btn-link text-white-50" href="">About Us</a>
+                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                        <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Photo Gallery</h5>
+                        <div class="row g-2 pt-2">
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-1.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-2.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-3.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-4.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-5.jpg" alt="">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded bg-light p-1" src="img/property-6.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Newsletter</h5>
+                        <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">Priug</a>, All Right Reserved. 
+							
+							
+							Designed By <a class="border-bottom" href="#">ahubug</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Home</a>
+                                <a href="">Cookies</a>
+                                <a href="">Help</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <!-- jQuery (Slick.js requires jQuery) -->
+    <!-- jQuery and Slick JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <!-- Slick Carousel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <!-- Initialize Carousel -->
+    <script>
+        $(document).ready(function () {
+            $('.reviews-carousel').slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                dots: true,
+                arrows: false
+            });
+        });
+    </script>
+
+    <script>
+        document.getElementById("contact-agent").addEventListener("click", function() {
+            document.getElementById("popup-overlay").style.display = "flex";
+        });
+        
+        document.getElementById("close-popup").addEventListener("click", function() {
+            document.getElementById("popup-overlay").style.display = "none";
+        });
+        
+        document.getElementById("user-phone").addEventListener("input", function() {
+            let phoneInput = this.value.trim();
+            let callButton = document.getElementById("call-agent");
+            let phonePattern = /^\+?[0-9]{10,15}$/;
+            
+            if (phonePattern.test(phoneInput)) {
+                callButton.classList.add("active");
+                callButton.disabled = false;
+                callButton.onclick = function() {
+                    window.location.href = "tel:" + phoneInput;
+                };
+            } else {
+                callButton.classList.remove("active");
+                callButton.disabled = true;
+            }
+        });
+    </script>
+
+    <script>
+    $(document).ready(function(){
+            $('.property-carousel').slick({
+                infinite: true,
+                slidesToShow: 3,  // Show 3 items at a time
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000, // Moves every 2 seconds
+                dots: true,
+                arrows: true,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 2
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+
+    <script>
+        const rateHostBtn = document.getElementById('rate-host-btn');
+        const ratePopupOverlay = document.getElementById('rate-popup-overlay');
+        const closeRatePopup = document.getElementById('close-rate-popup');
+        const starIcons = document.querySelectorAll('#star-rating i');
+        const continueReviewBtn = document.getElementById('continue-review');
+        const reviewSection = document.getElementById('review-section');
+        const reviewForm = document.getElementById('host-review-form');
+
+        let selectedRating = 0;
+
+        rateHostBtn.addEventListener('click', () => {
+            ratePopupOverlay.style.display = 'flex';
+            reviewSection.style.display = 'none';
+            continueReviewBtn.style.display = 'block'; // reset
+        });
+
+        closeRatePopup.addEventListener('click', () => {
+            ratePopupOverlay.style.display = 'none';
+            resetPopup();
+        });
+
+        starIcons.forEach(star => {
+            star.addEventListener('click', () => {
+                selectedRating = parseInt(star.getAttribute('data-value'));
+                updateStarSelection(selectedRating);
+            });
+        });
+
+        continueReviewBtn.addEventListener('click', () => {
+            if (selectedRating > 0) {
+                reviewSection.style.display = 'block';
+                continueReviewBtn.style.display = 'none';
+            } else {
+                alert('Please select a star rating before continuing.');
+            }
+        });
+
+        reviewForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your review!');
+            ratePopupOverlay.style.display = 'none';
+            resetPopup();
+        });
+
+        function updateStarSelection(rating) {
+            starIcons.forEach(star => {
+                const value = parseInt(star.getAttribute('data-value'));
+                if (value <= rating) {
+                    star.classList.add('selected', 'fas');
+                    star.classList.remove('far');
+                } else {
+                    star.classList.remove('selected', 'fas');
+                    star.classList.add('far');
+                }
+            });
+        }
+
+        function resetPopup() {
+            selectedRating = 0;
+            updateStarSelection(0);
+            reviewSection.style.display = 'none';
+            continueReviewBtn.style.display = 'block';
+            reviewForm.reset();
+        }
+
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const options = {
+        root: null, // viewport
+        rootMargin: '-50% 0px -50% 0px', // triggers when card crosses halfway (vertically centered)
+        threshold: 0 // As soon as it crosses that margin
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            // Remove active class from all cards
+            document.querySelectorAll('.airbnb-card, .most-booked-card').forEach(card => card.classList.remove('active-mobile'));
+            // Add active class to the card now at center
+            entry.target.classList.add('active-mobile');
+            }
+        });
+        }, options);
+
+        // Attach observer to Airbnb and Most Booked cards
+        document.querySelectorAll('.airbnb-card, .most-booked-card').forEach(card => observer.observe(card));
+        });
+    </script>
+    
+</body>
+
+</html>

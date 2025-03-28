@@ -26,6 +26,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+
 
     <!-- Slick CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
@@ -38,112 +41,6 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 
-    <style>
-        /* Sections */
-        .description, .amenities-list, .house-rules, .amenities, .reviews-section, .listed-by {
-            margin-bottom: 30px;
-        }
-
-        .description h2, .amenities-list h2, .house-rules h2, .amenities h2, .reviews-section h2, .booking h2, .host-container h2 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #444;
-        }
-
-        /* amenities & Amenities list */
-        .amenities-list ul, .amenities ul, .house-rules ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .amenities-list li, .amenities li, .house-rules li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .amenities-list li::before, .amenities li::before, .house-rules li::before {
-            content: "✓";
-            color: green;
-            position: absolute;
-            left: 0;
-        }
-
-        /* --Booking Section-- */
-        .booking-section {
-            max-width: 500px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .booking-section h2 {
-            text-align: center;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .booking-section form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .booking-section label {
-            font-size: 16px;
-            margin-bottom: 5px;
-            color: #333;
-        }
-
-        .booking-section input {
-            padding: 10px;
-            margin-bottom: 15px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            outline: none;
-        }
-
-        .booking-section input[type="date"] {
-            width: 100%;
-        }
-
-        .booking-section input[type="number"] {
-            width: 50%;
-        }
-
-        .booking-section button {
-            padding: 12px;
-            font-size: 16px;
-            color: white;
-            background-color: #4CAF50;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .booking-section button:hover {
-            background-color: #45a049;
-        }
-
-        /* --Booking Section End-- */
-
-        /*-- Host --*/
-        .host-container .agent-profile {
-            margin-top: 1em;
-        }
-
-        .host-container .agent-map iframe {
-            height: 480px;
-        }
-
-        .host-review {
-            max-width: 1118px;
-        }
-        /*-- Host End--*/
-    </style>
 </head>
 
 <body>
@@ -266,276 +163,498 @@
           </header>
         <!-- Navbar End -->
 
-        <div class="property-container">
-            <div class="property-details">
-        
-                <h1>Charming 3 Bedroom Airbnb with Scenic Views</h1>
-        
-                <div class="main-image">
-                    <img src="img/carousel-1.jpg" alt="Gallery Image">
-                    <span class="status-badge">Available</span>
-                    <span class="price-badge">$120 / night</span>
-                    <div class="image-overlay">
-                        <a href="gallery.html">View Images</a>
-                        <span>10 Images</span>
+        <!-- Gallery Modal -->
+        <div id="gallery-modal" class="gallery-modal">
+            <div class="gallery-modal-content">
+            <div class="gallery-modal-header">
+                <div class="gallery-modal-title">Property Gallery</div>
+                <div class="gallery-modal-actions">
+                <button class="gallery-action-btn" id="gallery-share-btn">
+                    <i class="fas fa-share-alt"></i>
+                </button>
+                <button class="gallery-action-btn" id="gallery-favorite-btn">
+                    <i class="far fa-heart"></i>
+                </button>
+                <button class="gallery-action-btn" id="gallery-close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+                </div>
+            </div>
+            <div class="gallery-modal-main">
+                <button class="gallery-nav-btn gallery-prev-btn" id="gallery-prev-btn">
+                <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="gallery-main-image-container">
+                <img id="gallery-main-image" src="https://picsum.photos/800/600?random=1" alt="Property image" class="gallery-main-image">
+                <div class="gallery-counter" id="gallery-counter">1/6</div>
+                </div>
+                <button class="gallery-nav-btn gallery-next-btn" id="gallery-next-btn">
+                <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="gallery-modal-thumbnails" id="gallery-thumbnails">
+                <!-- Gallery Thumbnails -->
+                <div class="gallery-thumbnail active">
+                <img src="https://picsum.photos/800/600?random=1" alt="Thumbnail 1">
+                </div>
+                <div class="gallery-thumbnail">
+                <img src="https://picsum.photos/800/600?random=2" alt="Thumbnail 2">
+                </div>
+                <div class="gallery-thumbnail">
+                <img src="https://picsum.photos/800/600?random=3" alt="Thumbnail 3">
+                </div>
+                <div class="gallery-thumbnail">
+                <img src="https://picsum.photos/800/600?random=4" alt="Thumbnail 4">
+                </div>
+                <div class="gallery-thumbnail">
+                <img src="https://picsum.photos/800/600?random=5" alt="Thumbnail 5">
+                </div>
+                <div class="gallery-thumbnail">
+                <img src="https://picsum.photos/800/600?random=6" alt="Thumbnail 6">
+                </div>
+            </div>
+            <div class="gallery-media-count">
+                <span class="media-count-item"><i class="fas fa-image"></i> 6 Photos</span>
+                <span class="media-count-item"><i class="fas fa-video"></i> 1 Video</span>
+            </div>
+            </div>
+        </div>
+
+        <main class="container">
+            <!-- Property Title and Actions -->
+            <div class="airbnb-header">
+            <div class="title-container">
+                <h1 class="property-title">Modern Luxury Apartment in City Center</h1>
+                <p class="property-address">
+                <i class="fas fa-map-marker-alt icon"></i>
+                123 Urban Street, Gayaza, City 12345
+                </p>
+            </div>
+            <div class="action-buttons">
+                <button id="save-button" class="btn btn-outline">
+                <i class="far fa-heart icon"></i>
+                Save
+                </button>
+                <button class="btn btn-outline">
+                <i class="fas fa-share-alt icon"></i>
+                Share
+                </button>
+            </div>
+            </div>
+
+            <div class="content-grid">
+            <div class="main-content">
+                <!-- Image Gallery - Desktop Version -->
+                <div class="image-gallery desktop-gallery">
+                <div class="gallery-grid">
+                    <div class="main-image-container">
+                    <img id="main-image-desktop" src="https://picsum.photos/800/600?random=1" alt="Property image" class="main-image">
+                    </div>
+                    <div class="thumbnail-grid">
+                    <div class="thumbnail-item">
+                        <img src="https://picsum.photos/800/600?random=2" alt="Property image" class="thumbnail-image">
+                    </div>
+                    <div class="thumbnail-item">
+                        <img src="https://picsum.photos/800/600?random=3" alt="Property image" class="thumbnail-image">
+                    </div>
+                    <div class="thumbnail-item">
+                        <img src="https://picsum.photos/800/600?random=4" alt="Property image" class="thumbnail-image">
+                    </div>
+                    <div class="thumbnail-item">
+                        <img src="https://picsum.photos/800/600?random=5" alt="Property image" class="thumbnail-image">
+                        <button id="view-all-media" class="view-all-media-btn">
+                        <i class="fas fa-th"></i> View All Media
+                        </button>
+                    </div>
                     </div>
                 </div>
-        
-                <div class="description">
-                    <h2>Description</h2>
-                    <p>Relax in this beautiful 3-bedroom Airbnb with stunning views and modern amenities. Perfect for family vacations or work retreats, located in a serene neighborhood close to key attractions.</p>
                 </div>
-        
-                <div class="amenities-list">
-                    <h2>Amenities</h2>
-                    <ul>
-                        <li>Free Wi-Fi</li>
-                        <li>Kitchen</li>
-                        <li>Washing Machine</li>
-                        <li>Parking on Premises</li>
-                        <li>Smart TV with Netflix</li>
-                        <li>Swimming Pool</li>
-                        <li>Air Conditioning</li>
-                    </ul>
+
+                <!-- Image Gallery - Mobile Version -->
+                <div class="image-gallery mobile-gallery">
+                <div class="mobile-gallery-container">
+                    <div class="mobile-gallery-slider" id="mobile-gallery-slider">
+                    <!-- Mobile Gallery Slides -->
+                    <div class="mobile-gallery-slide">
+                        <img src="https://picsum.photos/800/600?random=1" alt="Property image 1">
+                    </div>
+                    <div class="mobile-gallery-slide">
+                        <img src="https://picsum.photos/800/600?random=2" alt="Property image 2">
+                    </div>
+                    <div class="mobile-gallery-slide">
+                        <img src="https://picsum.photos/800/600?random=3" alt="Property image 3">
+                    </div>
+                    <div class="mobile-gallery-slide">
+                        <img src="https://picsum.photos/800/600?random=4" alt="Property image 4">
+                    </div>
+                    <div class="mobile-gallery-slide">
+                        <img src="https://picsum.photos/800/600?random=5" alt="Property image 5">
+                    </div>
+                    <div class="mobile-gallery-slide">
+                        <img src="https://picsum.photos/800/600?random=6" alt="Property image 6">
+                    </div>
+                    </div>
+                    <div class="mobile-gallery-counter" id="mobile-gallery-counter">1/6</div>
                 </div>
-        
-                <div class="availability description">
-                    <h2>Availability</h2>
-                    <p>Available dates: <strong>March 5, 2025 - March 30, 2025</strong></p>
                 </div>
-        
-                <div class="booking">
-                    <h2>Make Reservation Now</h2>
-                    <div class="booking-section">
-                        <h3>Book Now</h3>
-                        <form >
-                            <label for="check-in">Check-in Date:</label>
-                            <input type="date" id="check-in" name="check-in">
-                            <label for="check-out">Check-out Date:</label>
-                            <input type="date" id="check-out" name="check-out">
-                            <label for="guests">Guests:</label>
-                            <input type="number" id="guests" name="guests" min="1" max="6" value="1">
-                            <button type="submit">Reserve</button>
-                        </form>
+
+                <!-- Property Details -->
+                <div class="property-details-grid">
+                <div class="detail-card">
+                    <i class="fas fa-bed detail-icon"></i>
+                    <p class="detail-label">Bedrooms</p>
+                    <p class="detail-value">3</p>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-bath detail-icon"></i>
+                    <p class="detail-label">Bathrooms</p>
+                    <p class="detail-value">2</p>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-vector-square detail-icon"></i>
+                    <p class="detail-label">Size</p>
+                    <p class="detail-value">1,200 sq ft</p>
+                </div>
+                <div class="detail-card">
+                    <i class="far fa-calendar-check detail-icon"></i>
+                    <p class="detail-label">Availability</p>
+                    <p class="detail-value">Available Now</p>
+                </div>
+                </div>
+
+                <!-- Content Sections (No Tabs) -->
+                <div class="content-sections">
+                <!-- Overview Section -->
+                <div class="content-section" id="overview">
+                    <h2 class="section-title">Overview</h2>
+                    <div class="section-content">
+                    <h3 class="subsection-title">Description</h3>
+                    <p class="description-text">
+                        This stunning modern apartment offers luxurious living in the heart of the city. 
+                        Featuring floor-to-ceiling windows with panoramic city views, premium finishes, 
+                        and state-of-the-art appliances. The open-concept living area is perfect for 
+                        entertaining, while the bedrooms provide a peaceful retreat. Building amenities 
+                        include a fitness center, rooftop pool, and 24-hour concierge service.
+                    </p>
+                    
+                    <div class="travel-times">
+                        <h4 class="travel-times-title">Distance from Gayaza:</h4>
+                        <div class="travel-time-grid">
+                        <div class="travel-time-item">
+                            <i class="fas fa-walking travel-icon"></i>
+                            <span class="travel-mode">Walking</span>
+                            <span class="travel-duration">15 mins</span>
+                        </div>
+                        <div class="travel-time-item">
+                            <i class="fas fa-bicycle travel-icon"></i>
+                            <span class="travel-mode">Cycling</span>
+                            <span class="travel-duration">5 mins</span>
+                        </div>
+                        <div class="travel-time-item">
+                            <i class="fas fa-bus travel-icon"></i>
+                            <span class="travel-mode">Public Transit</span>
+                            <span class="travel-duration">8 mins</span>
+                        </div>
+                        <div class="travel-time-item">
+                            <i class="fas fa-car travel-icon"></i>
+                            <span class="travel-mode">Driving</span>
+                            <span class="travel-duration">3 mins</span>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="section-content">
+                    <h3 class="subsection-title">Property Details</h3>
+                    <div class="property-specs-grid">
+                        <div class="property-spec">
+                        <p class="spec-label"><i class="fas fa-building icon-small"></i> Property Type</p>
+                        <p class="spec-value">Apartment</p>
+                        </div>
+                        <div class="property-spec">
+                        <p class="spec-label"><i class="fas fa-couch icon-small"></i> Furnishing</p>
+                        <p class="spec-value">Fully Furnished</p>
+                        </div>
+                        <div class="property-spec">
+                        <p class="spec-label"><i class="fas fa-sort-numeric-up icon-small"></i> Floor Level</p>
+                        <p class="spec-value">12</p>
+                        </div>
+                        <div class="property-spec">
+                        <p class="spec-label"><i class="fas fa-calendar-alt icon-small"></i> Built Year</p>
+                        <p class="spec-value">2020</p>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 
-
-                <!-- Agent Profile Section -->
-                <div class="host-container">
-                    <h3>Host</h3>
-                    <div class="container agent-profile">
-                        <!-- Left side: Agent details -->
-                        <div class="agent-details">
-                            <img src="img/team-1.jpg" alt="Agent Picture">
-                            <h2>John Doe</h2>
-                            <p>Kampala, Uganda</p>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <button type="button" id="rate-host-btn"><i class="far fa-star"></i> Rate Host</button>
-                            <button id="contact-agent">Contact Host</button>
+                <!-- Features Section -->
+                <div class="content-section" id="features">
+                    <h2 class="section-title">Features & Amenities</h2>
+                    <div class="section-content">
+                    <h3 class="subsection-title">Features</h3>
+                    <div class="features-grid" id="features-list">
+                        <!-- Features List -->
+                        <div class="feature-item">
+                        <i class="fas fa-window-maximize feature-icon"></i>
+                        <p>Floor-to-ceiling windows</p>
                         </div>
-    
-                        <!-- Right side: Map -->
-                        <div class="agent-map">
-                            <iframe src="https://maps.google.com/maps?q=Kampala&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                        <div class="feature-item">
+                        <i class="fas fa-border-all feature-icon"></i>
+                        <p>Hardwood flooring</p>
+                        </div>
+                        <div class="feature-item">
+                        <i class="fas fa-wind feature-icon"></i>
+                        <p>Central air conditioning</p>
+                        </div>
+                        <div class="feature-item">
+                        <i class="fas fa-blender feature-icon"></i>
+                        <p>Stainless steel appliances</p>
+                        </div>
+                        <div class="feature-item">
+                        <i class="fas fa-square feature-icon"></i>
+                        <p>Quartz countertops</p>
+                        </div>
+                        <div class="feature-item">
+                        <i class="fas fa-door-open feature-icon"></i>
+                        <p>Walk-in closets</p>
+                        </div>
+                        <!-- Hidden features (will be shown when "Show All" is clicked) -->
+                        <div class="feature-item hidden-feature">
+                        <i class="fas fa-shower feature-icon"></i>
+                        <p>Ensuite bathroom in master bedroom</p>
+                        </div>
+                        <div class="feature-item hidden-feature">
+                        <i class="fas fa-mountain feature-icon"></i>
+                        <p>Balcony with city views</p>
+                        </div>
+                        <div class="feature-item hidden-feature">
+                        <i class="fas fa-tshirt feature-icon"></i>
+                        <p>In-unit washer and dryer</p>
+                        </div>
+                        <div class="feature-item hidden-feature">
+                        <i class="fas fa-home feature-icon"></i>
+                        <p>Smart home features</p>
+                        </div>
+                        <div class="feature-item hidden-feature">
+                        <i class="fas fa-paw feature-icon"></i>
+                        <p>Pet-friendly</p>
+                        </div>
+                        <div class="feature-item hidden-feature">
+                        <i class="fas fa-parking feature-icon"></i>
+                        <p>Parking space included</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- Reviews Carousel -->
-                <div class="container host-review reviews-section">
-                    <h3>Guest Reviews</h3>
-                    <div class="reviews-carousel">
-                        <div class="review-item">
-                            <h5>Great Agent</h5>
-                            <p>"Great agent! Helped me find my dream home."</p>
-                            <h4>– Sarah K.</h4>
+                    <button id="toggle-features" class="toggle-btn">Show All Features</button>
+                    </div>
+                    <div class="section-content">
+                    <h3 class="subsection-title">Building Amenities</h3>
+                    <div class="features-grid" id="amenities-list">
+                        <!-- Amenities List -->
+                        <div class="feature-item">
+                        <i class="fas fa-concierge-bell feature-icon"></i>
+                        <p>24-hour concierge</p>
                         </div>
-                        <div class="review-item">
-                            <h5>Professional</h5>
-                            <p>"Very professional and responsive. Highly recommended."</p>
-                            <h4>– Michael T.</h4>
+                        <div class="feature-item">
+                        <i class="fas fa-dumbbell feature-icon"></i>
+                        <p>Fitness center</p>
                         </div>
-                        <div class="review-item">
-                            <h5>Easy going</h5>
-                            <p>"Smooth process from start to finish. Thank you!"</p>
-                            <h4>– Janet M.</h4>
+                        <div class="feature-item">
+                        <i class="fas fa-swimming-pool feature-icon"></i>
+                        <p>Rooftop pool</p>
+                        </div>
+                        <div class="feature-item">
+                        <i class="fas fa-couch feature-icon"></i>
+                        <p>Resident lounge</p>
+                        </div>
+                        <div class="feature-item">
+                        <i class="fas fa-box feature-icon"></i>
+                        <p>Package receiving</p>
+                        </div>
+                        <div class="feature-item">
+                        <i class="fas fa-bicycle feature-icon"></i>
+                        <p>Bicycle storage</p>
+                        </div>
+                        <!-- Hidden amenities (will be shown when "Show All" is clicked) -->
+                        <div class="feature-item hidden-feature">
+                        <i class="fas fa-charging-station feature-icon"></i>
+                        <p>Electric vehicle charging</p>
+                        </div>
+                        <div class="feature-item hidden-feature">
+                        <i class="fas fa-tools feature-icon"></i>
+                        <p>On-site maintenance</p>
+                        </div>
+                        <div class="feature-item hidden-feature">
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                        <p>Security system</p>
+                        </div>
+                        <div class="feature-item hidden-feature">
+                        <i class="fas fa-elevator feature-icon"></i>
+                        <p>Elevator access</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- Rate Host Popup -->
-                <div class="popup-overlay" id="rate-popup-overlay">
-                    <div class="popup rate-popup" id="rate-popup">
-                        <h3>Rate Host</h3>
-                        <div class="star-rating" id="star-rating">
-                            <i class="far fa-star" data-value="1"></i>
-                            <i class="far fa-star" data-value="2"></i>
-                            <i class="far fa-star" data-value="3"></i>
-                            <i class="far fa-star" data-value="4"></i>
-                            <i class="far fa-star" data-value="5"></i>
-                        </div>
-                        <button id="continue-review">Continue</button>
-
-                        <!-- Review Section (Hidden initially) -->
-                        <div class="review-section" id="review-section">
-                            <h3>Leave a Review</h3>
-                            <form class="review-form">
-                                <div class="">
-                                    <div class="reviewer-details">
-                                        <input type="text" placeholder="Your Name" required>
-                                        <input type="email" placeholder="E-mail- Will remain hidden" required>
-                                    </div>
-                                    <input type="text" placeholder="Review Title" required>
-                                    <textarea rows="5" placeholder="Write your review here..." required></textarea>
-                                </div>
-                                <button type="submit">Submit Review</button>
-                            </form>
-                        </div>
-
-                        <span class="close-btn" id="close-rate-popup">Close</span>
+                    <button id="toggle-amenities" class="toggle-btn">Show All Amenities</button>
                     </div>
                 </div>
-
-                <!-- Review Form -->
-                <!-- <div class="container review-form">
-                    <h3>Leave a Review</h3>
-                    <form>
-                        <div class="">
-                            <div class="reviewer-details">
-                                <input type="text" placeholder="Your Name" required>
-                                <input type="email" placeholder="E-mail- Will remain hidden" required>
-                            </div>
-                            <input type="text" placeholder="Review Title" required>
-                            <textarea rows="5" placeholder="Write your review here..." required></textarea>
+                
+                <!-- Location Section -->
+                <div class="content-section" id="location">
+                    <h2 class="section-title">Location</h2>
+                    <div class="section-content">
+                      <div id="property-map" class="property-map"></div>
+                      <div class="map-controls">
+                        <h4>Show Nearby</h4>
+                        <div class="map-toggle-buttons" id="map-toggles">
+                          <button class="map-toggle-btn" data-type="school">
+                            <i class="fas fa-graduation-cap"></i> Schools
+                          </button>
+                          <button class="map-toggle-btn" data-type="restaurant">
+                            <i class="fas fa-utensils"></i> Restaurants
+                          </button>
+                          <button class="map-toggle-btn" data-type="transit_station">
+                            <i class="fas fa-train"></i> Transport
+                          </button>
+                          <button class="map-toggle-btn" data-type="supermarket">
+                            <i class="fas fa-shopping-cart"></i> Supermarkets
+                          </button>
+                          <button class="map-toggle-btn" data-type="park">
+                            <i class="fas fa-tree"></i> Parks
+                          </button>
+                          <button class="map-toggle-btn" data-type="hospital">
+                            <i class="fas fa-hospital"></i> Hospitals
+                          </button>
                         </div>
-                        <button type="submit">Submit Review</button>
-                    </form>
-                </div> -->
+                      </div>
+                    </div>
+                    <div class="section-content">
+                      <h3 class="subsection-title">Nearby Facilities</h3>
+                      <div class="nearby-grid" id="nearby-facilities">
+                        <!-- Default message when no facility type is selected -->
+                        <p id="nearby-message">Select a facility type above to see nearby locations</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
 
-                <!-- Contact Host Pop up Form -->
+            <div class="sidebar">
+                <!-- Price Card -->
+                <div class="card price-card">
+                <div class="price-header">
+                    <h2 class="price">$3,500 per month</h2>
+                    <p class="price-label">Rental Price</p>
+                </div>
+                <div class="divider"></div>
+                <div class="price-details">
+                    <div class="price-detail-row">
+                    <span><i class="fas fa-shield-alt icon-small"></i> Security Deposit</span>
+                    <span>$7,000</span>
+                    </div>
+                    <div class="price-detail-row">
+                    <span><i class="fas fa-file-contract icon-small"></i> Minimum Lease</span>
+                    <span>1 year</span>
+                    </div>
+                    <div class="price-detail-row">
+                    <span><i class="fas fa-calendar-day icon-small"></i> Available From</span>
+                    <span>Immediate</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="contact-agent">Contact Agent</button>
+                <button class="btn btn-outline full-width">Schedule Viewing</button>
+                </div>
+
                 <div class="popup-overlay" id="popup-overlay">
                     <div class="popup">
-                        <form action="" class="review-form">
-                            <h3>Contact Host</h3>
-                            <p>Please enter your message to the host.</p>
-                            <textarea placeholder="Write your message here..." rows="4"></textarea>
-                            <button id="send-message">Send Message</button>
-                            <span class="close-btn" id="close-popup">Close</span>
-                        </form>
+                        <h3>Contact Agent</h3>
+                        <p>Kindly provide your phone number to proceed.</p>
+                        <input type="tel" id="user-phone" placeholder="Enter your phone number">
+                        <button id="call-agent" disabled>Call Agent</button>
+                        <span class="close-btn" id="close-popup">Close</span>
                     </div>
                 </div>
-        
-            </div>
-        
-            <div class="property-sidebar">
-                <h3>Other Airbnbs by Same Host</h3>
-                <div class="sidebar-cards">
-                    <div class="most-booked-wrapper-2">
-                        <!-- Card 1 -->
-                      <div class="most-booked-card">
-                        <img src="img/property-3.jpg" alt="Most Booked 1">
-                        <div class="most-booked-details">
-                          <h6>Beachfront Bungalow</h6>
-                          <p>$220/night</p>
-                          <a href="airbnb.html" class="check-btn">Check it out</a>
-                        </div>
-                        <div class="most-booked-details-static">
-                            <h6>Beachfront Bungalow</h6>
-                        </div>
-                      </div>
-                
-                      <!-- Card 2 -->
-                      <div class="most-booked-card">
-                        <img src="img/carousel-2.jpg" alt="Most Booked 2">
-                        <div class="most-booked-details">
-                          <h6>Urban Penthouse</h6>
-                          <p>$300/night</p>
-                          <a href="airbnb.html" class="check-btn">Check it out</a>
-                        </div>
-                        <div class="most-booked-details-static">
-                            <h6>Urban Penthouse</h6>
-                          </div>
-                      </div>
-                        <!-- Card 1 -->
-                      <div class="most-booked-card">
-                        <img src="img/property-3.jpg" alt="Most Booked 1">
-                        <div class="most-booked-details">
-                          <h6>Beachfront Bungalow</h6>
-                          <p>$220/night</p>
-                          <a href="airbnb.html" class="check-btn">Check it out</a>
-                        </div>
-                        <div class="most-booked-details-static">
-                            <h6>Beachfront Bungalow</h6>
-                        </div>
-                      </div>
-                
-                      <!-- Card 2 -->
-                      <div class="most-booked-card">
-                        <img src="img/carousel-2.jpg" alt="Most Booked 2">
-                        <div class="most-booked-details">
-                          <h6>Urban Penthouse</h6>
-                          <p>$300/night</p>
-                          <a href="airbnb.html" class="check-btn">Check it out</a>
-                        </div>
-                        <div class="most-booked-details-static">
-                            <h6>Urban Penthouse</h6>
-                          </div>
-                      </div>
-                      </div>
-                </div>
-            </div>
-        </div>
 
-        
-        
-        <!-- Airbnbs within the same location -->
-        <div class="container my-4">
-            <h2 class="carousel-heading">Airbnbs within the same Location</h2>
-        
-            <div class="property-carousel">
-                <!-- Item 1 -->
-              <div class="carousel-item active">
-                <span class="status-badge">Available</span>
-                <img src="img/carousel-1.jpg" class="d-block w-100" alt="Airbnb 1">
-                <div class="carousel-caption">
-                  <h5>Cozy Beach House</h5>
-                  <p>$150/night</p>
-                  <a href="airbnb.html" class="check-btn">Check it out</a>
+                <!-- Agent Card -->
+                <div class="card agent-card">
+                <div class="agent-info">
+                    <div class="agent-image-container">
+                    <img src="https://picsum.photos/150?random=7" alt="Agent" class="agent-image">
+                    </div>
+                    <div class="agent-details">
+                    <h3 class="agent-name">Alex Johnson</h3>
+                    <p class="agent-company">City Real Estate</p>
+                    <p class="agent-title">Property Agent</p>
+                    </div>
                 </div>
-              </div>
-    
-              <!-- Item 2 -->
-              <div class="carousel-item">
-                <span class="status-badge">Available</span>
-                <img src="img/carousel-2.jpg" class="d-block w-100" alt="Airbnb 2">
-                <div class="carousel-caption">
-                  <h5>Modern Apartment</h5>
-                  <p>$120/night</p>
-                  <a href="airbnb.html" class="check-btn">Check it out</a>
+
+                <div id="agent-contact-info" class="agent-contact-info">
+                    <button class="btn btn-outline full-width agent-contact-btn">
+                    <i class="fas fa-envelope icon"></i>
+                    alex@cityrealestate.com
+                    </button>
+                    <button id="show-inquiry-form" class="btn btn-primary full-width">
+                    <i class="fas fa-comment-alt icon"></i>
+                    Send Inquiry
+                    </button>
                 </div>
-              </div>
-    
-              <!-- Item 3 -->
-              <div class="carousel-item">
-                <span class="status-badge">Available</span>
-                <img src="img/property-2.jpg" class="d-block w-100" alt="Airbnb 3">
-                <div class="carousel-caption">
-                  <h5>Luxury Villa</h5>
-                  <p>$350/night</p>
-                  <a href="airbnb.html" class="check-btn">Check it out</a>
+
+                <form id="inquiry-form" class="inquiry-form hidden">
+                    <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required class="form-input">
+                    </div>
+                    <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required class="form-input">
+                    </div>
+                    <div class="form-group">
+                    <input type="tel" id="phone" name="phone" placeholder="Your Phone" required class="form-input">
+                    </div>
+                    <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Your Message" rows="4" required class="form-textarea">I am interested in this property. Please contact me with more information.</textarea>
+                    </div>
+                    <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary form-btn">Send</button>
+                    <button type="button" id="cancel-inquiry" class="btn btn-outline form-btn">Cancel</button>
+                    </div>
+                </form>
                 </div>
-              </div>
-                <!-- More items as needed -->
+
+                <!-- Similar Properties -->
+                <div class="card similar-properties-card">
+                <h3 class="card-title">Similar Properties</h3>
+                <div class="similar-properties-list">
+                    <div class="similar-property">
+                    <div class="similar-property-image-container">
+                        <img src="https://picsum.photos/80/80?random=10" alt="Similar property 1" class="similar-property-image">
+                    </div>
+                    <div class="similar-property-details">
+                        <h4 class="similar-property-title">Modern Apartment in District 1</h4>
+                        <p class="similar-property-specs"><i class="fas fa-bed icon-small"></i> 2 bed, <i class="fas fa-bath icon-small"></i> 1 bath • 900 sq ft</p>
+                        <p class="similar-property-price">$3,100 /month</p>
+                    </div>
+                    </div>
+                    <div class="similar-property">
+                    <div class="similar-property-image-container">
+                        <img src="https://picsum.photos/80/80?random=11" alt="Similar property 2" class="similar-property-image">
+                    </div>
+                    <div class="similar-property-details">
+                        <h4 class="similar-property-title">Modern Apartment in District 2</h4>
+                        <p class="similar-property-specs"><i class="fas fa-bed icon-small"></i> 2 bed, <i class="fas fa-bath icon-small"></i> 1 bath • 900 sq ft</p>
+                        <p class="similar-property-price">$3,200 /month</p>
+                    </div>
+                    </div>
+                    <div class="similar-property">
+                    <div class="similar-property-image-container">
+                        <img src="https://picsum.photos/80/80?random=12" alt="Similar property 3" class="similar-property-image">
+                    </div>
+                    <div class="similar-property-details">
+                        <h4 class="similar-property-title">Modern Apartment in District 3</h4>
+                        <p class="similar-property-specs"><i class="fas fa-bed icon-small"></i> 2 bed, <i class="fas fa-bath icon-small"></i> 1 bath • 900 sq ft</p>
+                        <p class="similar-property-price">$3,300 /month</p>
+                    </div>
+                    </div>
+                </div>
+                <a href="#" class="btn-link">View More</a>
+                </div>
             </div>
-        </div>
-        <!-- End Airbnbs within same location -->
+            </div>
+        </main>
         
         
 
@@ -644,23 +763,11 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <!-- Slick Carousel -->
+    <script src="js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-
-    <!-- Initialize Carousel -->
-    <script>
-        $(document).ready(function () {
-            $('.reviews-carousel').slick({
-                infinite: true,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                dots: true,
-                arrows: false
-            });
-        });
-    </script>
-
+    <!-- Update Google Maps script tag with the provided API key -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnGFAe-xn0asL_yJKQMU5wuRAYGjhEHpk&libraries=places&callback=initMapWhenReady"></script>
+    <!-- contact agent -->
     <script>
         document.getElementById("contact-agent").addEventListener("click", function() {
             document.getElementById("popup-overlay").style.display = "flex";
@@ -687,127 +794,6 @@
             }
         });
     </script>
-
-    <script>
-    $(document).ready(function(){
-            $('.property-carousel').slick({
-                infinite: true,
-                slidesToShow: 3,  // Show 3 items at a time
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 2000, // Moves every 2 seconds
-                dots: true,
-                arrows: true,
-                responsive: [
-                    {
-                        breakpoint: 992,
-                        settings: {
-                            slidesToShow: 2
-                        }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 1
-                        }
-                    }
-                ]
-            });
-        });
-    </script>
-
-    <script>
-        const rateHostBtn = document.getElementById('rate-host-btn');
-        const ratePopupOverlay = document.getElementById('rate-popup-overlay');
-        const closeRatePopup = document.getElementById('close-rate-popup');
-        const starIcons = document.querySelectorAll('#star-rating i');
-        const continueReviewBtn = document.getElementById('continue-review');
-        const reviewSection = document.getElementById('review-section');
-        const reviewForm = document.getElementById('host-review-form');
-
-        let selectedRating = 0;
-
-        rateHostBtn.addEventListener('click', () => {
-            ratePopupOverlay.style.display = 'flex';
-            reviewSection.style.display = 'none';
-            continueReviewBtn.style.display = 'block'; // reset
-        });
-
-        closeRatePopup.addEventListener('click', () => {
-            ratePopupOverlay.style.display = 'none';
-            resetPopup();
-        });
-
-        starIcons.forEach(star => {
-            star.addEventListener('click', () => {
-                selectedRating = parseInt(star.getAttribute('data-value'));
-                updateStarSelection(selectedRating);
-            });
-        });
-
-        continueReviewBtn.addEventListener('click', () => {
-            if (selectedRating > 0) {
-                reviewSection.style.display = 'block';
-                continueReviewBtn.style.display = 'none';
-            } else {
-                alert('Please select a star rating before continuing.');
-            }
-        });
-
-        reviewForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your review!');
-            ratePopupOverlay.style.display = 'none';
-            resetPopup();
-        });
-
-        function updateStarSelection(rating) {
-            starIcons.forEach(star => {
-                const value = parseInt(star.getAttribute('data-value'));
-                if (value <= rating) {
-                    star.classList.add('selected', 'fas');
-                    star.classList.remove('far');
-                } else {
-                    star.classList.remove('selected', 'fas');
-                    star.classList.add('far');
-                }
-            });
-        }
-
-        function resetPopup() {
-            selectedRating = 0;
-            updateStarSelection(0);
-            reviewSection.style.display = 'none';
-            continueReviewBtn.style.display = 'block';
-            reviewForm.reset();
-        }
-
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-        const options = {
-        root: null, // viewport
-        rootMargin: '-50% 0px -50% 0px', // triggers when card crosses halfway (vertically centered)
-        threshold: 0 // As soon as it crosses that margin
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-            // Remove active class from all cards
-            document.querySelectorAll('.airbnb-card, .most-booked-card').forEach(card => card.classList.remove('active-mobile'));
-            // Add active class to the card now at center
-            entry.target.classList.add('active-mobile');
-            }
-        });
-        }, options);
-
-        // Attach observer to Airbnb and Most Booked cards
-        document.querySelectorAll('.airbnb-card, .most-booked-card').forEach(card => observer.observe(card));
-        });
-    </script>
-    
 </body>
 
 </html>
