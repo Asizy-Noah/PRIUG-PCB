@@ -499,39 +499,193 @@
                 <div class="content-section" id="location">
                     <h2 class="section-title">Location</h2>
                     <div class="section-content">
-                      <div id="property-map" class="property-map"></div>
-                      <div class="map-controls">
+                    <div id="property-map" class="property-map"></div>
+                    <div class="map-controls">
                         <h4>Show Nearby</h4>
                         <div class="map-toggle-buttons" id="map-toggles">
-                          <button class="map-toggle-btn" data-type="school">
+                        <button class="map-toggle-btn" data-type="school">
                             <i class="fas fa-graduation-cap"></i> Schools
-                          </button>
-                          <button class="map-toggle-btn" data-type="restaurant">
+                        </button>
+                        <button class="map-toggle-btn" data-type="restaurant">
                             <i class="fas fa-utensils"></i> Restaurants
-                          </button>
-                          <button class="map-toggle-btn" data-type="transit_station">
+                        </button>
+                        <button class="map-toggle-btn" data-type="transit_station">
                             <i class="fas fa-train"></i> Transport
-                          </button>
-                          <button class="map-toggle-btn" data-type="supermarket">
+                        </button>
+                        <button class="map-toggle-btn" data-type="supermarket">
                             <i class="fas fa-shopping-cart"></i> Supermarkets
-                          </button>
-                          <button class="map-toggle-btn" data-type="park">
+                        </button>
+                        <button class="map-toggle-btn" data-type="park">
                             <i class="fas fa-tree"></i> Parks
-                          </button>
-                          <button class="map-toggle-btn" data-type="hospital">
+                        </button>
+                        <button class="map-toggle-btn" data-type="hospital">
                             <i class="fas fa-hospital"></i> Hospitals
-                          </button>
+                        </button>
                         </div>
-                      </div>
+                    </div>
                     </div>
                     <div class="section-content">
-                      <h3 class="subsection-title">Nearby Facilities</h3>
-                      <div class="nearby-grid" id="nearby-facilities">
+                    <h3 class="subsection-title">Nearby Facilities</h3>
+                    <div class="nearby-grid" id="nearby-facilities">
                         <!-- Default message when no facility type is selected -->
                         <p id="nearby-message">Select a facility type above to see nearby locations</p>
-                      </div>
+                        
+                        <!-- Schools (initially hidden, will be shown when "Schools" is clicked) -->
+                        <div class="facility-group" id="school-facilities" style="display: none;">
+                        <div class="nearby-item">
+                            <div class="nearby-name">
+                            <i class="fas fa-graduation-cap nearby-icon" style="color: #f44336;"></i>
+                            <span>Central Elementary School</span>
+                            </div>
+                            <div class="nearby-details">
+                            <span class="nearby-distance">0.3 miles</span>
+                            <span class="nearby-rating">★★★★½</span>
+                            </div>
+                        </div>
+                        <div class="nearby-item">
+                            <div class="nearby-name">
+                            <i class="fas fa-graduation-cap nearby-icon" style="color: #f44336;"></i>
+                            <span>Gayaza High School</span>
+                            </div>
+                            <div class="nearby-details">
+                            <span class="nearby-distance">0.7 miles</span>
+                            <span class="nearby-rating">★★★★</span>
+                            </div>
+                        </div>
+                        </div>
+                        
+                        <!-- Restaurants (initially hidden, will be shown when "Restaurants" is clicked) -->
+                        <div class="facility-group" id="restaurant-facilities" style="display: none;">
+                        <div class="nearby-item">
+                            <div class="nearby-name">
+                            <i class="fas fa-utensils nearby-icon" style="color: #e91e63;"></i>
+                            <span>Urban Bistro</span>
+                            </div>
+                            <div class="nearby-details">
+                            <span class="nearby-distance">0.2 miles</span>
+                            <span class="nearby-rating">★★★★½</span>
+                            </div>
+                        </div>
+                        <div class="nearby-item">
+                            <div class="nearby-name">
+                            <i class="fas fa-utensils nearby-icon" style="color: #e91e63;"></i>
+                            <span>City Cafe</span>
+                            </div>
+                            <div class="nearby-details">
+                            <span class="nearby-distance">0.3 miles</span>
+                            <span class="nearby-rating">★★★★</span>
+                            </div>
+                        </div>
+                        <div class="nearby-item">
+                            <div class="nearby-name">
+                            <i class="fas fa-utensils nearby-icon" style="color: #e91e63;"></i>
+                            <span>Gourmet Kitchen</span>
+                            </div>
+                            <div class="nearby-details">
+                            <span class="nearby-distance">0.4 miles</span>
+                            <span class="nearby-rating">★★★★★</span>
+                            </div>
+                        </div>
+                        </div>
+                        
+                        <!-- Transit Stations (initially hidden, will be shown when "Transport" is clicked) -->
+                        <div class="facility-group" id="transit_station-facilities" style="display: none;">
+                        <div class="nearby-item">
+                            <div class="nearby-name">
+                            <i class="fas fa-train nearby-icon" style="color: #9c27b0;"></i>
+                            <span>Central Station</span>
+                            </div>
+                            <div class="nearby-details">
+                            <span class="nearby-distance">0.1 miles</span>
+                            <span class="nearby-rating">★★★★½</span>
+                            </div>
+                        </div>
+                        <div class="nearby-item">
+                            <div class="nearby-name">
+                            <i class="fas fa-train nearby-icon" style="color: #9c27b0;"></i>
+                            <span>Gayaza Bus Terminal</span>
+                            </div>
+                            <div class="nearby-details">
+                            <span class="nearby-distance">0.4 miles</span>
+                            <span class="nearby-rating">★★★★</span>
+                            </div>
+                        </div>
+                        </div>
+                        
+                        <!-- Supermarkets (initially hidden, will be shown when "Supermarkets" is clicked) -->
+                        <div class="facility-group" id="supermarket-facilities" style="display: none;">
+                        <div class="nearby-item">
+                            <div class="nearby-name">
+                            <i class="fas fa-shopping-cart nearby-icon" style="color: #3f51b5;"></i>
+                            <span>Fresh Market</span>
+                            </div>
+                            <div class="nearby-details">
+                            <span class="nearby-distance">0.2 miles</span>
+                            <span class="nearby-rating">★★★★½</span>
+                            </div>
+                        </div>
+                        <div class="nearby-item">
+                            <div class="nearby-name">
+                            <i class="fas fa-shopping-cart nearby-icon" style="color: #3f51b5;"></i>
+                            <span>City Grocers</span>
+                            </div>
+                            <div class="nearby-details">
+                            <span class="nearby-distance">0.5 miles</span>
+                            <span class="nearby-rating">★★★★</span>
+                            </div>
+                        </div>
+                        </div>
+                        
+                        <!-- Parks (initially hidden, will be shown when "Parks" is clicked) -->
+                        <div class="facility-group" id="park-facilities" style="display: none;">
+                        <div class="nearby-item">
+                            <div class="nearby-name">
+                            <i class="fas fa-tree nearby-icon" style="color: #4caf50;"></i>
+                            <span>Central Park</span>
+                            </div>
+                            <div class="nearby-details">
+                            <span class="nearby-distance">0.5 miles</span>
+                            <span class="nearby-rating">★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="nearby-item">
+                            <div class="nearby-name">
+                            <i class="fas fa-tree nearby-icon" style="color: #4caf50;"></i>
+                            <span>Riverside Gardens</span>
+                            </div>
+                            <div class="nearby-details">
+                            <span class="nearby-distance">0.8 miles</span>
+                            <span class="nearby-rating">★★★★½</span>
+                            </div>
+                        </div>
+                        </div>
+                        
+                        <!-- Hospitals (initially hidden, will be shown when "Hospitals" is clicked) -->
+                        <div class="facility-group" id="hospital-facilities" style="display: none;">
+                        <div class="nearby-item">
+                            <div class="nearby-name">
+                            <i class="fas fa-hospital nearby-icon" style="color: #00bcd4;"></i>
+                            <span>City General Hospital</span>
+                            </div>
+                            <div class="nearby-details">
+                            <span class="nearby-distance">1.2 miles</span>
+                            <span class="nearby-rating">★★★★</span>
+                            </div>
+                        </div>
+                        <div class="nearby-item">
+                            <div class="nearby-name">
+                            <i class="fas fa-hospital nearby-icon" style="color: #00bcd4;"></i>
+                            <span>Gayaza Medical Center</span>
+                            </div>
+                            <div class="nearby-details">
+                            <span class="nearby-distance">1.5 miles</span>
+                            <span class="nearby-rating">★★★★½</span>
+                            </div>
+                        </div>
+                        </div>
                     </div>
-                  </div>
+                    </div>
+                </div>
                 </div>
             </div>
 
@@ -573,47 +727,100 @@
 
                 <!-- Agent Card -->
                 <div class="card agent-card">
-                <div class="agent-info">
+                    <div class="agent-info">
                     <div class="agent-image-container">
-                    <img src="https://picsum.photos/150?random=7" alt="Agent" class="agent-image">
+                        <img src="https://picsum.photos/150?random=7" alt="Agent" class="agent-image">
                     </div>
                     <div class="agent-details">
-                    <h3 class="agent-name">Alex Johnson</h3>
-                    <p class="agent-company">City Real Estate</p>
-                    <p class="agent-title">Property Agent</p>
+                        <h3 class="agent-name">Alex Johnson</h3>
+                        <p class="agent-company">City Real Estate</p>
+                        <p class="agent-title">Property Agent</p>
+                        
+                        <!-- Agent Rating Display -->
+                        <div id="agent-rating-display" class="agent-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="rating-text">4.2 </span>
+                        </div>
                     </div>
-                </div>
-
-                <div id="agent-contact-info" class="agent-contact-info">
+                    </div>
+                
+                    <div id="agent-contact-info" class="agent-contact-info">
+                    <button id="rate-host-btn" class="btn btn-outline full-width agent-contact-btn ">
+                        <i class="fas fa-star-half-alt icon"></i>
+                        Rate Agent
+                    </button>
                     <button class="btn btn-outline full-width agent-contact-btn">
-                    <i class="fas fa-envelope icon"></i>
-                    alex@cityrealestate.com
+                        <a href="agent.html"><i class="fas fa-envelope icon"></i>
+                            About Agent</a>
                     </button>
                     <button id="show-inquiry-form" class="btn btn-primary full-width">
-                    <i class="fas fa-comment-alt icon"></i>
-                    Send Inquiry
+                        <i class="fas fa-comment-alt icon"></i>
+                        Send Inquiry
                     </button>
-                </div>
-
-                <form id="inquiry-form" class="inquiry-form hidden">
+                    </div>
+                
+                    <form id="inquiry-form" class="inquiry-form hidden">
                     <div class="form-group">
-                    <input type="text" id="name" name="name" placeholder="Your Name" required class="form-input">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required class="form-input">
                     </div>
                     <div class="form-group">
-                    <input type="email" id="email" name="email" placeholder="Your Email" required class="form-input">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required class="form-input">
                     </div>
                     <div class="form-group">
-                    <input type="tel" id="phone" name="phone" placeholder="Your Phone" required class="form-input">
+                        <input type="tel" id="phone" name="phone" placeholder="Your Phone" required class="form-input">
                     </div>
                     <div class="form-group">
-                    <textarea id="message" name="message" placeholder="Your Message" rows="4" required class="form-textarea">I am interested in this property. Please contact me with more information.</textarea>
+                        <textarea id="message" name="message" placeholder="Your Message" rows="4" required class="form-textarea">I am interested in this property. Please contact me with more information.</textarea>
                     </div>
                     <div class="form-buttons">
-                    <button type="submit" class="btn btn-primary form-btn">Send</button>
-                    <button type="button" id="cancel-inquiry" class="btn btn-outline form-btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary form-btn">Send</button>
+                        <button type="button" id="cancel-inquiry" class="btn btn-outline form-btn">Cancel</button>
                     </div>
-                </form>
+                    </form>
+                    
+                    
                 </div>
+
+                <!-- Rating Popup -->
+                    <!-- Rate Host Popup -->
+                    <div class="popup-overlay" id="rate-popup-overlay">
+                        <div class="popup rate-popup" id="rate-popup">
+                            <h3>Rate Host</h3>
+                            <div class="star-rating" id="star-rating">
+                                <i class="far fa-star" data-value="1"></i>
+                                <i class="far fa-star" data-value="2"></i>
+                                <i class="far fa-star" data-value="3"></i>
+                                <i class="far fa-star" data-value="4"></i>
+                                <i class="far fa-star" data-value="5"></i>
+                            </div>
+                            <button id="continue-review">Continue</button>
+
+                            <!-- Review Section (Hidden initially) -->
+                            <div class="review-section" id="review-section">
+                                <h3>Leave a Review</h3>
+                                <form class="review-form">
+                                    <div class="">
+                                        <div class="reviewer-details">
+                                            <input type="text" placeholder="Your Name" required>
+                                            <input type="email" placeholder="E-mail- Will remain hidden" required>
+                                        </div>
+                                        <input type="text" placeholder="Review Title" required>
+                                        <textarea rows="5" placeholder="Write your review here..." required></textarea>
+                                    </div>
+                                    <button type="submit">Submit Review</button>
+                                </form>
+                            </div>
+
+                            <span class="close-btn" id="close-rate-popup">Close</span>
+                        </div>
+                    </div>
+                
 
                 <!-- Similar Properties -->
                 <div class="card similar-properties-card">
@@ -793,6 +1000,73 @@
                 callButton.disabled = true;
             }
         });
+    </script>
+    <script>
+        const rateHostBtn = document.getElementById('rate-host-btn');
+        const ratePopupOverlay = document.getElementById('rate-popup-overlay');
+        const closeRatePopup = document.getElementById('close-rate-popup');
+        const starIcons = document.querySelectorAll('#star-rating i');
+        const continueReviewBtn = document.getElementById('continue-review');
+        const reviewSection = document.getElementById('review-section');
+        const reviewForm = document.getElementById('host-review-form');
+
+        let selectedRating = 0;
+
+        rateHostBtn.addEventListener('click', () => {
+            ratePopupOverlay.style.display = 'flex';
+            reviewSection.style.display = 'none';
+            continueReviewBtn.style.display = 'block'; // reset
+        });
+
+        closeRatePopup.addEventListener('click', () => {
+            ratePopupOverlay.style.display = 'none';
+            resetPopup();
+        });
+
+        starIcons.forEach(star => {
+            star.addEventListener('click', () => {
+                selectedRating = parseInt(star.getAttribute('data-value'));
+                updateStarSelection(selectedRating);
+            });
+        });
+
+        continueReviewBtn.addEventListener('click', () => {
+            if (selectedRating > 0) {
+                reviewSection.style.display = 'block';
+                continueReviewBtn.style.display = 'none';
+            } else {
+                alert('Please select a star rating before continuing.');
+            }
+        });
+
+        reviewForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your review!');
+            ratePopupOverlay.style.display = 'none';
+            resetPopup();
+        });
+
+        function updateStarSelection(rating) {
+            starIcons.forEach(star => {
+                const value = parseInt(star.getAttribute('data-value'));
+                if (value <= rating) {
+                    star.classList.add('selected', 'fas');
+                    star.classList.remove('far');
+                } else {
+                    star.classList.remove('selected', 'fas');
+                    star.classList.add('far');
+                }
+            });
+        }
+
+        function resetPopup() {
+            selectedRating = 0;
+            updateStarSelection(0);
+            reviewSection.style.display = 'none';
+            continueReviewBtn.style.display = 'block';
+            reviewForm.reset();
+        }
+
     </script>
 </body>
 

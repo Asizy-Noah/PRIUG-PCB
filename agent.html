@@ -181,7 +181,7 @@
                     <i class="fas fa-star-half-alt"></i>
                     <i class="far fa-star"></i>
                 </div>
-                <button type="submit"><i class="far fa-star"></i>Rate Agent</button>
+                <button type="submit" id="rate-host-btn"><i class="far fa-star" ></i>Rate Agent</button>
             </div>
 
             <!-- Right side: Map -->
@@ -189,6 +189,40 @@
                 <iframe src="https://maps.google.com/maps?q=Kampala&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
             </div>
         </div>
+
+        <!-- Rating Popup -->
+                    <!-- Rate Host Popup -->
+                    <div class="popup-overlay" id="rate-popup-overlay">
+                        <div class="popup rate-popup" id="rate-popup">
+                            <h3>Rate Host</h3>
+                            <div class="star-rating" id="star-rating">
+                                <i class="far fa-star" data-value="1"></i>
+                                <i class="far fa-star" data-value="2"></i>
+                                <i class="far fa-star" data-value="3"></i>
+                                <i class="far fa-star" data-value="4"></i>
+                                <i class="far fa-star" data-value="5"></i>
+                            </div>
+                            <button id="continue-review">Continue</button>
+
+                            <!-- Review Section (Hidden initially) -->
+                            <div class="review-section" id="review-section">
+                                <h3>Leave a Review</h3>
+                                <form class="review-form">
+                                    <div class="">
+                                        <div class="reviewer-details">
+                                            <input type="text" placeholder="Your Name" required>
+                                            <input type="email" placeholder="E-mail- Will remain hidden" required>
+                                        </div>
+                                        <input type="text" placeholder="Review Title" required>
+                                        <textarea rows="5" placeholder="Write your review here..." required></textarea>
+                                    </div>
+                                    <button type="submit">Submit Review</button>
+                                </form>
+                            </div>
+
+                            <span class="close-btn" id="close-rate-popup">Close</span>
+                        </div>
+                    </div>
 
         <!-- Reviews Carousel -->
         <div class="container reviews-section">
@@ -733,6 +767,73 @@
                 arrows: false
             });
         });
+    </script>
+    <script>
+        const rateHostBtn = document.getElementById('rate-host-btn');
+        const ratePopupOverlay = document.getElementById('rate-popup-overlay');
+        const closeRatePopup = document.getElementById('close-rate-popup');
+        const starIcons = document.querySelectorAll('#star-rating i');
+        const continueReviewBtn = document.getElementById('continue-review');
+        const reviewSection = document.getElementById('review-section');
+        const reviewForm = document.getElementById('host-review-form');
+
+        let selectedRating = 0;
+
+        rateHostBtn.addEventListener('click', () => {
+            ratePopupOverlay.style.display = 'flex';
+            reviewSection.style.display = 'none';
+            continueReviewBtn.style.display = 'block'; // reset
+        });
+
+        closeRatePopup.addEventListener('click', () => {
+            ratePopupOverlay.style.display = 'none';
+            resetPopup();
+        });
+
+        starIcons.forEach(star => {
+            star.addEventListener('click', () => {
+                selectedRating = parseInt(star.getAttribute('data-value'));
+                updateStarSelection(selectedRating);
+            });
+        });
+
+        continueReviewBtn.addEventListener('click', () => {
+            if (selectedRating > 0) {
+                reviewSection.style.display = 'block';
+                continueReviewBtn.style.display = 'none';
+            } else {
+                alert('Please select a star rating before continuing.');
+            }
+        });
+
+        reviewForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your review!');
+            ratePopupOverlay.style.display = 'none';
+            resetPopup();
+        });
+
+        function updateStarSelection(rating) {
+            starIcons.forEach(star => {
+                const value = parseInt(star.getAttribute('data-value'));
+                if (value <= rating) {
+                    star.classList.add('selected', 'fas');
+                    star.classList.remove('far');
+                } else {
+                    star.classList.remove('selected', 'fas');
+                    star.classList.add('far');
+                }
+            });
+        }
+
+        function resetPopup() {
+            selectedRating = 0;
+            updateStarSelection(0);
+            reviewSection.style.display = 'none';
+            continueReviewBtn.style.display = 'block';
+            reviewForm.reset();
+        }
+
     </script>
 
     <!-- Template Javascript -->
