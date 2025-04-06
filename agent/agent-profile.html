@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Profile - Carihave Agent Panel</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="admin-style.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h1 class="logo">Carihave Agent Panel</h1>
+                </div>
+                <div class="col-6 text-end">
+                    <div class="dropdown">
+                        <button class="user-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle"></i>
+                            <span class="d-none d-md-inline-block ms-2">Agent Name</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item active" href="agent-profile.html"><i class="fas fa-user me-2"></i> Agent Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <ul class="nav-list">
+                <li class="nav-item" data-type="rentals">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home me-2"></i>
+                        <span>My Rentals</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-type="airbees">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-hotel me-2"></i>
+                        <span>My Airbees</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-type="onsale">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-tag me-2"></i>
+                        <span>My On Sale</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div class="container-fluid">
+                <div class="content-header">
+                    <h2>Agent Profile</h2>
+                    <a href="agent-home.html" class="back-btn">
+                        <i class="fas fa-arrow-left me-2"></i> Back to Dashboard
+                    </a>
+                </div>
+
+                <!-- Profile Section -->
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div class="profile-card">
+                            <div class="profile-header">
+                                <div class="profile-img-container">
+                                    <img src="../img/team-3.jpg" alt="Agent Profile" class="profile-img" id="profile-img">
+                                    <button class="edit-img-btn" id="edit-img-btn">
+                                        <i class="fas fa-camera"></i>
+                                    </button>
+                                    <input type="file" id="img-upload" accept="image/*" style="display: none;">
+                                </div>
+                                <div class="profile-name-container">
+                                    <h3 class="profile-name" id="profile-name">John Doe</h3>
+                                    <button class="edit-name-btn" id="edit-name-btn">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </div>
+                                <div class="profile-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="rating-value">4.5</span>
+                                    <span class="rating-count">(42 reviews)</span>
+                                </div>
+                            </div>
+                            <div class="profile-body">
+                                <div class="profile-info">
+                                    <div class="info-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>New York Metropolitan Area</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-phone"></i>
+                                        <span>+1 (555) 123-4567</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>john.doe@carihave.com</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>Member since January 2022</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile-footer">
+                                <div class="stats">
+                                    <div class="stat-item">
+                                        <h4>15</h4>
+                                        <p>Properties</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h4>42</h4>
+                                        <p>Reviews</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h4>95%</h4>
+                                        <p>Success Rate</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-8">
+                        <div class="reviews-card">
+                            <div class="reviews-header">
+                                <h3>Client Reviews</h3>
+                                <div class="reviews-summary">
+                                    <div class="big-rating">
+                                        <span class="big-rating-value">4.5</span>
+                                        <div class="big-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <span class="big-rating-count">Based on 42 reviews</span>
+                                    </div>
+                                    <div class="rating-bars">
+                                        <div class="rating-bar-item">
+                                            <span class="rating-label">5 stars</span>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 75%"></div>
+                                            </div>
+                                            <span class="rating-percent">75%</span>
+                                        </div>
+                                        <div class="rating-bar-item">
+                                            <span class="rating-label">4 stars</span>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 15%"></div>
+                                            </div>
+                                            <span class="rating-percent">15%</span>
+                                        </div>
+                                        <div class="rating-bar-item">
+                                            <span class="rating-label">3 stars</span>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 8%"></div>
+                                            </div>
+                                            <span class="rating-percent">8%</span>
+                                        </div>
+                                        <div class="rating-bar-item">
+                                            <span class="rating-label">2 stars</span>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 2%"></div>
+                                            </div>
+                                            <span class="rating-percent">2%</span>
+                                        </div>
+                                        <div class="rating-bar-item">
+                                            <span class="rating-label">1 star</span>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                                            </div>
+                                            <span class="rating-percent">0%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="reviews-body">
+                                <div class="review-item">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <img src="../img/testimonial-1.jpg" alt="Reviewer" class="reviewer-img">
+                                            <div>
+                                                <h5 class="reviewer-name">Sarah Johnson</h5>
+                                                <span class="review-date">October 15, 2023</span>
+                                            </div>
+                                        </div>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="review-content">
+                                        <p>John was incredibly helpful in finding our dream home. His knowledge of the New York real estate market is impressive, and he was always available to answer our questions. Highly recommend!</p>
+                                    </div>
+                                    <div class="review-property">
+                                        <span>Property: </span>
+                                        <a href="#">Modern Apartment in Manhattan</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="review-item">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <img src="../img/testimonial-2.jpg" alt="Reviewer" class="reviewer-img">
+                                            <div>
+                                                <h5 class="reviewer-name">Michael Brown</h5>
+                                                <span class="review-date">September 3, 2023</span>
+                                            </div>
+                                        </div>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="review-content">
+                                        <p>Great experience working with John. He understood our needs and showed us properties that matched our criteria. The process was smooth and efficient. Would work with him again.</p>
+                                    </div>
+                                    <div class="review-property">
+                                        <span>Property: </span>
+                                        <a href="#">Luxury Condo in Brooklyn</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="review-item">
+                                    <div class="review-header">
+                                        <div class="reviewer-info">
+                                            <img src="../img/testimonial-3.jpg" alt="Reviewer" class="reviewer-img">
+                                            <div>
+                                                <h5 class="reviewer-name">Emily Wilson</h5>
+                                                <span class="review-date">August 17, 2023</span>
+                                            </div>
+                                        </div>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                    </div>
+                                    <div class="review-content">
+                                        <p>John is a true professional. He helped us sell our property at a great price and in record time. His marketing strategy was excellent, and he kept us informed throughout the entire process.</p>
+                                    </div>
+                                    <div class="review-property">
+                                        <span>Property: </span>
+                                        <a href="#">Family House in Queens</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="reviews-footer">
+                                <button class="load-more-btn">
+                                    <i class="fas fa-spinner me-2"></i> Load More Reviews
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Name Modal -->
+    <div class="modal fade" id="editNameModal" tabindex="-1" aria-labelledby="editNameModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editNameModalLabel">Edit Agent Name</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="nameEditForm">
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName" value="John">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" value="Doe">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveNameBtn">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="agent-script.js"></script>
+</body>
+</html>

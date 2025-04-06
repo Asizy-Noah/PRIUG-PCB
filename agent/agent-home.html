@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carihave Agent Panel</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h1 class="logo">Carihave Agent Panel</h1>
+                </div>
+                <div class="col-6 text-end">
+                    <div class="dropdown">
+                        <button class="user-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle"></i>
+                            <span class="d-none d-md-inline-block ms-2">Agent Name</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="agent-profile.html"><i class="fas fa-user me-2"></i> Agent Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <ul class="nav-list">
+                <li class="nav-item active" data-type="rentals">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-home me-2"></i>
+                        <span>My Rentals</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-type="airbees">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-hotel me-2"></i>
+                        <span>My Airbees</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-type="onsale">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-tag me-2"></i>
+                        <span>My On Sale</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div class="container-fluid">
+                <div class="content-header">
+                    <h2>Manage your properties</h2>
+                    <button class="add-property-btn">
+                        <a href="add-property.html"><i class="fas fa-plus me-2"></i> Add Property</a>
+                    </button>
+                </div>
+
+                <!-- Property Tables -->
+                <div class="property-table-container" id="rentals-table">
+                    <div class="table-responsive">
+                        <table class="table property-table">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Title</th>
+                                    <th>Status</th>
+                                    <th>Location</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Modern Apartment</td>
+                                    <td><span class="status-badge live">Live</span></td>
+                                    <td>New York, NY</td>
+                                    <td>
+                                        <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Luxury Condo</td>
+                                    <td><span class="status-badge pending">Pending</span></td>
+                                    <td>Miami, FL</td>
+                                    <td>
+                                        <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Beachfront Villa</td>
+                                    <td><span class="status-badge live">Live</span></td>
+                                    <td>Malibu, CA</td>
+                                    <td>
+                                        <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Modern Apartment</td>
+                                    <td><span class="status-badge live">Live</span></td>
+                                    <td>New York, NY</td>
+                                    <td>
+                                        <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Luxury Condo</td>
+                                    <td><span class="status-badge pending">Pending</span></td>
+                                    <td>Miami, FL</td>
+                                    <td>
+                                        <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>Beachfront Villa</td>
+                                    <td><span class="status-badge live">Live</span></td>
+                                    <td>Malibu, CA</td>
+                                    <td>
+                                        <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="property-table-container" id="airbees-table" style="display: none;">
+                    <div class="table-responsive">
+                        <table class="table property-table">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Title</th>
+                                    <th>Status</th>
+                                    <th>Location</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Vacation Home</td>
+                                    <td><span class="status-badge live">Live</span></td>
+                                    <td>Orlando, FL</td>
+                                    <td>
+                                        <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Mountain Cabin</td>
+                                    <td><span class="status-badge pending">Pending</span></td>
+                                    <td>Aspen, CO</td>
+                                    <td>
+                                        <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="property-table-container" id="onsale-table" style="display: none;">
+                    <div class="table-responsive">
+                        <table class="table property-table">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Title</th>
+                                    <th>Status</th>
+                                    <th>Location</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Family House</td>
+                                    <td><span class="status-badge live">Live</span></td>
+                                    <td>Chicago, IL</td>
+                                    <td>
+                                        <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Penthouse Suite</td>
+                                    <td><span class="status-badge pending">Pending</span></td>
+                                    <td>Los Angeles, CA</td>
+                                    <td>
+                                        <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Commercial Building</td>
+                                    <td><span class="status-badge live">Live</span></td>
+                                    <td>Seattle, WA</td>
+                                    <td>
+                                        <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="agent-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Property - Carihave Agent Panel</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="admin-style.css">
+    <link rel="stylesheet" href="add-property.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h1 class="logo">Carihave Agent Panel</h1>
+                </div>
+                <div class="col-6 text-end">
+                    <div class="dropdown">
+                        <button class="user-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-circle"></i>
+                            <span class="d-none d-md-inline-block ms-2">Agent Name</span>
+                            <i class="fas fa-chevron-down ms-2"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="agent-profile.html"><i class="fas fa-user me-2"></i> Agent Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <ul class="nav-list">
+                <li class="nav-item" data-type="rentals">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home me-2"></i>
+                        <span>My Rentals</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-type="airbees">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-hotel me-2"></i>
+                        <span>My Airbees</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-type="onsale">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-tag me-2"></i>
+                        <span>My On Sale</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div class="container-fluid">
+                <div class="content-header">
+                    <h2>Add New Property</h2>
+                    <a href="index.html" class="back-btn">
+                        <i class="fas fa-arrow-left me-2"></i> Back to Dashboard
+                    </a>
+                </div>
+
+                <!-- Add Property Form -->
+                <div class="add-property-form">
+                    <form id="propertyForm">
+                        <!-- Form Navigation -->
+                        <div class="form-nav">
+                            <div class="form-nav-item active" data-section="basic-info">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Basic Info</span>
+                            </div>
+                            <div class="form-nav-item" data-section="details">
+                                <i class="fas fa-list"></i>
+                                <span>Details</span>
+                            </div>
+                            <div class="form-nav-item" data-section="images">
+                                <i class="fas fa-images"></i>
+                                <span>Images</span>
+                            </div>
+                            <div class="form-nav-item" data-section="features">
+                                <i class="fas fa-star"></i>
+                                <span>Features</span>
+                            </div>
+                            <div class="form-nav-item" data-section="location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Location</span>
+                            </div>
+                        </div>
+
+                        <!-- Form Sections -->
+                        <div class="form-sections">
+                            <!-- Basic Info Section -->
+                            <div class="form-section active" id="basic-info">
+                                <h3 class="section-title">Basic Information</h3>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-12">
+                                        <label for="propertyTitle" class="form-label">Property Title <span class="required">*</span></label>
+                                        <input type="text" class="form-control" id="propertyTitle" name="propertyTitle" placeholder="e.g. Modern Luxury Apartment in City Center" required>
+                                        <div class="form-text">Create a catchy title that highlights key features of your property</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-12">
+                                        <label for="propertyDescription" class="form-label">Property Description <span class="required">*</span></label>
+                                        <textarea class="form-control" id="propertyDescription" name="propertyDescription" rows="5" placeholder="Describe your property in detail..." required></textarea>
+                                        <div class="form-text">Include information about the property's unique features, condition, and surroundings</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <label for="propertyType" class="form-label">Property Type <span class="required">*</span></label>
+                                        <select class="form-select" id="propertyType" name="propertyType" required>
+                                            <option value="" selected disabled>Select property type</option>
+                                            <option value="apartment">Apartment</option>
+                                            <option value="house">House</option>
+                                            <option value="villa">Villa</option>
+                                            <option value="condo">Condo</option>
+                                            <option value="townhouse">Townhouse</option>
+                                            <option value="commercial">Commercial</option>
+                                            <option value="land">Land</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="listingType" class="form-label">Listing Type <span class="required">*</span></label>
+                                        <select class="form-select" id="listingType" name="listingType" required>
+                                            <option value="" selected disabled>Select listing type</option>
+                                            <option value="rental">For Rent</option>
+                                            <option value="sale">For Sale</option>
+                                            <option value="airbee">Airbee (Short-term)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <label for="price" class="form-label">Price <span class="required">*</span></label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="number" class="form-control" id="price" name="price" placeholder="e.g. 3500" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="priceType" class="form-label">Price Type <span class="required">*</span></label>
+                                        <select class="form-select" id="priceType" name="priceType" required>
+                                            <option value="" selected disabled>Select price type</option>
+                                            <option value="per_month">Per Month</option>
+                                            <option value="per_week">Per Week</option>
+                                            <option value="per_night">Per Night</option>
+                                            <option value="total">Total Price (For Sale)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-4" id="rentalDetailsSection">
+                                    <div class="col-md-4">
+                                        <label for="securityDeposit" class="form-label">Security Deposit</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="number" class="form-control" id="securityDeposit" name="securityDeposit" placeholder="e.g. 7000">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="minimumLease" class="form-label">Minimum Lease</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" id="minimumLease" name="minimumLease" placeholder="e.g. 12">
+                                            <span class="input-group-text">months</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="availableFrom" class="form-label">Available From</label>
+                                        <input type="date" class="form-control" id="availableFrom" name="availableFrom">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-navigation">
+                                    <button type="button" class="btn btn-primary next-btn" data-next="details">Next: Property Details</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Details Section -->
+                            <div class="form-section" id="details">
+                                <h3 class="section-title">Property Details</h3>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-3">
+                                        <label for="bedrooms" class="form-label">Bedrooms <span class="required">*</span></label>
+                                        <input type="number" class="form-control" id="bedrooms" name="bedrooms" min="0" placeholder="e.g. 3" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="bathrooms" class="form-label">Bathrooms <span class="required">*</span></label>
+                                        <input type="number" class="form-control" id="bathrooms" name="bathrooms" min="0" step="0.5" placeholder="e.g. 2" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="size" class="form-label">Size (sq ft) <span class="required">*</span></label>
+                                        <input type="number" class="form-control" id="size" name="size" min="0" placeholder="e.g. 1200" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="yearBuilt" class="form-label">Year Built</label>
+                                        <input type="number" class="form-control" id="yearBuilt" name="yearBuilt" min="1900" max="2099" placeholder="e.g. 2020">
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <label for="furnishing" class="form-label">Furnishing</label>
+                                        <select class="form-select" id="furnishing" name="furnishing">
+                                            <option value="" selected disabled>Select furnishing type</option>
+                                            <option value="unfurnished">Unfurnished</option>
+                                            <option value="semi_furnished">Semi-Furnished</option>
+                                            <option value="fully_furnished">Fully Furnished</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="floorLevel" class="form-label">Floor Level</label>
+                                        <input type="number" class="form-control" id="floorLevel" name="floorLevel" min="0" placeholder="e.g. 12">
+                                    </div>
+                                </div>
+                                
+                                <h4 class="subsection-title">Travel Times</h4>
+                                <div class="row mb-4">
+                                    <div class="col-md-3">
+                                        <label for="walkingTime" class="form-label">Walking Time (mins)</label>
+                                        <input type="number" class="form-control" id="walkingTime" name="walkingTime" min="0" placeholder="e.g. 15">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="cyclingTime" class="form-label">Cycling Time (mins)</label>
+                                        <input type="number" class="form-control" id="cyclingTime" name="cyclingTime" min="0" placeholder="e.g. 5">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="transitTime" class="form-label">Public Transit Time (mins)</label>
+                                        <input type="number" class="form-control" id="transitTime" name="transitTime" min="0" placeholder="e.g. 8">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="drivingTime" class="form-label">Driving Time (mins)</label>
+                                        <input type="number" class="form-control" id="drivingTime" name="drivingTime" min="0" placeholder="e.g. 3">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-navigation">
+                                    <button type="button" class="btn btn-outline-secondary prev-btn" data-prev="basic-info">Previous</button>
+                                    <button type="button" class="btn btn-primary next-btn" data-next="images">Next: Images</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Images Section -->
+                            <div class="form-section" id="images">
+                                <h3 class="section-title">Property Images</h3>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-12">
+                                        <label class="form-label">Main Property Image <span class="required">*</span></label>
+                                        <div class="main-image-upload">
+                                            <div class="image-preview" id="mainImagePreview">
+                                                <i class="fas fa-image preview-placeholder"></i>
+                                                <span class="preview-text">No image selected</span>
+                                            </div>
+                                            <div class="upload-controls">
+                                                <label for="mainImage" class="btn btn-outline-primary upload-btn">
+                                                    <i class="fas fa-upload"></i> Choose Main Image
+                                                </label>
+                                                <input type="file" id="mainImage" name="mainImage" accept="image/*" class="file-input" required>
+                                                <div class="form-text">This will be the featured image of your property listing</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-12">
+                                        <label class="form-label">Additional Images</label>
+                                        <div class="additional-images-upload">
+                                            <div class="additional-images-preview" id="additionalImagesPreview">
+                                                <div class="image-upload-placeholder">
+                                                    <i class="fas fa-plus"></i>
+                                                </div>
+                                            </div>
+                                            <div class="upload-controls">
+                                                <label for="additionalImages" class="btn btn-outline-primary upload-btn">
+                                                    <i class="fas fa-images"></i> Add More Images
+                                                </label>
+                                                <input type="file" id="additionalImages" name="additionalImages" accept="image/*" class="file-input" multiple>
+                                                <div class="form-text">You can select multiple images at once (max 10 images)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-navigation">
+                                    <button type="button" class="btn btn-outline-secondary prev-btn" data-prev="details">Previous</button>
+                                    <button type="button" class="btn btn-primary next-btn" data-next="features">Next: Features & Amenities</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Features Section -->
+                            <div class="form-section" id="features">
+                                <h3 class="section-title">Features & Amenities</h3>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-12">
+                                        <h4 class="subsection-title">Property Features</h4>
+                                        <div class="features-grid">
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="feature1" name="features" value="windows">
+                                                <label for="feature1"><i class="fas fa-window-maximize"></i> Floor-to-ceiling windows</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="feature2" name="features" value="flooring">
+                                                <label for="feature2"><i class="fas fa-border-all"></i> Hardwood flooring</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="feature3" name="features" value="ac">
+                                                <label for="feature3"><i class="fas fa-wind"></i> Central air conditioning</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="feature4" name="features" value="appliances">
+                                                <label for="feature4"><i class="fas fa-blender"></i> Stainless steel appliances</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="feature5" name="features" value="countertops">
+                                                <label for="feature5"><i class="fas fa-square"></i> Quartz countertops</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="feature6" name="features" value="closets">
+                                                <label for="feature6"><i class="fas fa-door-open"></i> Walk-in closets</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="feature7" name="features" value="ensuite">
+                                                <label for="feature7"><i class="fas fa-shower"></i> Ensuite bathroom</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="feature8" name="features" value="balcony">
+                                                <label for="feature8"><i class="fas fa-mountain"></i> Balcony</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="feature9" name="features" value="laundry">
+                                                <label for="feature9"><i class="fas fa-tshirt"></i> In-unit washer and dryer</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="feature10" name="features" value="smart">
+                                                <label for="feature10"><i class="fas fa-home"></i> Smart home features</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="feature11" name="features" value="pet">
+                                                <label for="feature11"><i class="fas fa-paw"></i> Pet-friendly</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="feature12" name="features" value="parking">
+                                                <label for="feature12"><i class="fas fa-parking"></i> Parking space included</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-12">
+                                        <h4 class="subsection-title">Building Amenities</h4>
+                                        <div class="features-grid">
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="amenity1" name="amenities" value="concierge">
+                                                <label for="amenity1"><i class="fas fa-concierge-bell"></i> 24-hour concierge</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="amenity2" name="amenities" value="fitness">
+                                                <label for="amenity2"><i class="fas fa-dumbbell"></i> Fitness center</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="amenity3" name="amenities" value="pool">
+                                                <label for="amenity3"><i class="fas fa-swimming-pool"></i> Rooftop pool</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="amenity4" name="amenities" value="lounge">
+                                                <label for="amenity4"><i class="fas fa-couch"></i> Resident lounge</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="amenity5" name="amenities" value="package">
+                                                <label for="amenity5"><i class="fas fa-box"></i> Package receiving</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="amenity6" name="amenities" value="bicycle">
+                                                <label for="amenity6"><i class="fas fa-bicycle"></i> Bicycle storage</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="amenity7" name="amenities" value="charging">
+                                                <label for="amenity7"><i class="fas fa-charging-station"></i> Electric vehicle charging</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="amenity8" name="amenities" value="maintenance">
+                                                <label for="amenity8"><i class="fas fa-tools"></i> On-site maintenance</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="amenity9" name="amenities" value="security">
+                                                <label for="amenity9"><i class="fas fa-shield-alt"></i> Security system</label>
+                                            </div>
+                                            <div class="feature-checkbox">
+                                                <input type="checkbox" id="amenity10" name="amenities" value="elevator">
+                                                <label for="amenity10"><i class="fas fa-elevator"></i> Elevator access</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-12">
+                                        <label for="additionalFeatures" class="form-label">Additional Features</label>
+                                        <textarea class="form-control" id="additionalFeatures" name="additionalFeatures" rows="3" placeholder="List any additional features not mentioned above..."></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-navigation">
+                                    <button type="button" class="btn btn-outline-secondary prev-btn" data-prev="images">Previous</button>
+                                    <button type="button" class="btn btn-primary next-btn" data-next="location">Next: Location</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Location Section -->
+                            <div class="form-section" id="location">
+                                <h3 class="section-title">Location Information</h3>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-12">
+                                        <label for="address" class="form-label">Street Address <span class="required">*</span></label>
+                                        <input type="text" class="form-control" id="address" name="address" placeholder="e.g. 123 Urban Street" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-4">
+                                        <label for="city" class="form-label">City/Town <span class="required">*</span></label>
+                                        <input type="text" class="form-control" id="city" name="city" placeholder="e.g. Gayaza" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="state" class="form-label">State/Province <span class="required">*</span></label>
+                                        <input type="text" class="form-control" id="state" name="state" placeholder="e.g. Central" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="zipCode" class="form-label">Zip/Postal Code <span class="required">*</span></label>
+                                        <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="e.g. 12345" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-12">
+                                        <label class="form-label">Map Location</label>
+                                        <div class="map-container">
+                                            <div id="propertyMap" class="property-map">
+                                                <!-- Map will be loaded here -->
+                                                <div class="map-placeholder">
+                                                    <i class="fas fa-map-marked-alt"></i>
+                                                    <p>Map will be displayed here</p>
+                                                </div>
+                                            </div>
+                                            <div class="map-controls">
+                                                <button type="button" class="btn btn-outline-primary" id="pinLocation">
+                                                    <i class="fas fa-map-pin"></i> Pin Location
+                                                </button>
+                                                <div class="form-text">Click to set the exact location of your property on the map</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h4 class="subsection-title">Nearby Facilities</h4>
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <label for="nearbySchools" class="form-label">Nearby Schools</label>
+                                        <textarea class="form-control" id="nearbySchools" name="nearbySchools" rows="2" placeholder="List nearby schools and their distances..."></textarea>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="nearbyRestaurants" class="form-label">Nearby Restaurants</label>
+                                        <textarea class="form-control" id="nearbyRestaurants" name="nearbyRestaurants" rows="2" placeholder="List nearby restaurants and their distances..."></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <label for="nearbyTransport" class="form-label">Nearby Transport</label>
+                                        <textarea class="form-control" id="nearbyTransport" name="nearbyTransport" rows="2" placeholder="List nearby transport options and their distances..."></textarea>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="nearbyShops" class="form-label">Nearby Shops & Supermarkets</label>
+                                        <textarea class="form-control" id="nearbyShops" name="nearbyShops" rows="2" placeholder="List nearby shops and their distances..."></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-navigation">
+                                    <button type="button" class="btn btn-outline-secondary prev-btn" data-prev="features">Previous</button>
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-outline-secondary" id="saveAsDraft">Save as Draft</button>
+                                        <button type="submit" class="btn btn-primary" id="submitProperty">Submit Property</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Property Summary Modal -->
+    <div class="modal fade" id="propertySummaryModal" tabindex="-1" aria-labelledby="propertySummaryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="propertySummaryModalLabel">Property Summary</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="propertySummaryContent">
+                    <!-- Summary content will be dynamically inserted here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Continue Editing</button>
+                    <button type="button" class="btn btn-danger" id="confirmSubmit">Submit Property</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="agent-script.js"></script>
+    <script src="add-property.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Form navigation
+            const formNavItems = document.querySelectorAll('.form-nav-item');
+            const formSections = document.querySelectorAll('.form-section');
+            const nextButtons = document.querySelectorAll('.next-btn');
+            const prevButtons = document.querySelectorAll('.prev-btn');
+        
+            // Image upload
+            const mainImageInput = document.getElementById('mainImage');
+            const mainImagePreview = document.getElementById('mainImagePreview');
+            const additionalImagesInput = document.getElementById('additionalImages');
+            const additionalImagesPreview = document.getElementById('additionalImagesPreview');
+        
+            // Form submission
+            const propertyForm = document.getElementById('propertyForm');
+            const submitPropertyBtn = document.getElementById('submitProperty');
+            const saveAsDraftBtn = document.getElementById('saveAsDraft');
+            const confirmSubmitBtn = document.getElementById('confirmSubmit');
+        
+            // Bootstrap Modal
+            const propertySummaryModalElement = document.getElementById('propertySummaryModal');
+            const propertySummaryModal = propertySummaryModalElement ? new bootstrap.Modal(propertySummaryModalElement) : null;
+        
+            formNavItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    const targetSection = this.getAttribute('data-section');
+                    formNavItems.forEach(navItem => navItem.classList.remove('active'));
+                    this.classList.add('active');
+                    formSections.forEach(section => {
+                        section.classList.toggle('active', section.id === targetSection);
+                    });
+                });
+            });
+        
+            nextButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const nextSection = this.getAttribute('data-next');
+                    const currentSection = this.closest('.form-section');
+                    if (validateSection(currentSection)) {
+                        formNavItems.forEach(navItem => {
+                            navItem.classList.toggle('active', navItem.getAttribute('data-section') === nextSection);
+                        });
+                        formSections.forEach(section => {
+                            section.classList.toggle('active', section.id === nextSection);
+                        });
+                        window.scrollTo(0, 0);
+                    }
+                });
+            });
+        
+            prevButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const prevSection = this.getAttribute('data-prev');
+                    formNavItems.forEach(navItem => {
+                        navItem.classList.toggle('active', navItem.getAttribute('data-section') === prevSection);
+                    });
+                    formSections.forEach(section => {
+                        section.classList.toggle('active', section.id === prevSection);
+                    });
+                    window.scrollTo(0, 0);
+                });
+            });
+        
+            if (mainImageInput) {
+                mainImageInput.addEventListener('change', function () {
+                    const file = this.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            mainImagePreview.innerHTML = `<img src="${e.target.result}" alt="Main property image">`;
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+        
+            if (additionalImagesInput) {
+                additionalImagesInput.addEventListener('change', function () {
+                    const files = this.files;
+                    if (files.length > 0) {
+                        const currentImages = additionalImagesPreview.querySelectorAll('.additional-image-item').length;
+                        const maxImages = 10 - currentImages;
+                        const filesToProcess = Math.min(files.length, maxImages);
+                        for (let i = 0; i < filesToProcess; i++) {
+                            const reader = new FileReader();
+                            reader.onload = function (e) {
+                                const imageItem = document.createElement('div');
+                                imageItem.className = 'additional-image-item';
+                                imageItem.innerHTML = `
+                                    <img src="${e.target.result}" alt="Additional property image">
+                                    <span class="remove-image"><i class="fas fa-times"></i></span>
+                                `;
+                                additionalImagesPreview.insertBefore(imageItem, additionalImagesPreview.firstChild);
+                                imageItem.querySelector('.remove-image').addEventListener('click', function () {
+                                    additionalImagesPreview.removeChild(imageItem);
+                                });
+                            };
+                            reader.readAsDataURL(files[i]);
+                        }
+                        if (files.length > maxImages) {
+                            alert(`You can only upload a maximum of 10 images. Only the first ${maxImages} images have been added.`);
+                        }
+                    }
+                });
+            }
+        
+            if (propertyForm) {
+                propertyForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    if (validateForm()) {
+                        generatePropertySummary();
+                        if (propertySummaryModal) {
+                            propertySummaryModal.show();
+                        }
+                    }
+                });
+            }
+        
+            if (saveAsDraftBtn) {
+                saveAsDraftBtn.addEventListener('click', function () {
+                    alert('Property saved as draft successfully!');
+                });
+            }
+        
+            if (confirmSubmitBtn) {
+                confirmSubmitBtn.addEventListener('click', function () {
+                    alert('Property submitted successfully!');
+                    if (propertySummaryModal) {
+                        propertySummaryModal.hide();
+                    }
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1000);
+                });
+            }
+        
+            function validateSection(section) {
+                const requiredFields = section.querySelectorAll('[required]');
+                let isValid = true;
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.classList.add('is-invalid');
+                        field.addEventListener('input', function () {
+                            if (this.value.trim()) {
+                                this.classList.remove('is-invalid');
+                            }
+                        }, { once: true });
+                    } else {
+                        field.classList.remove('is-invalid');
+                    }
+                });
+                if (!isValid) {
+                    alert('Please fill in all required fields before proceeding.');
+                }
+                return isValid;
+            }
+        
+            function validateForm() {
+                const requiredFields = document.querySelectorAll('[required]');
+                let isValid = true;
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.classList.add('is-invalid');
+                        field.addEventListener('input', function () {
+                            if (this.value.trim()) {
+                                this.classList.remove('is-invalid');
+                            }
+                        }, { once: true });
+                    } else {
+                        field.classList.remove('is-invalid');
+                    }
+                });
+                if (!isValid) {
+                    alert('Please fill in all required fields before submitting.');
+                    const invalidField = document.querySelector('.is-invalid');
+                    if (invalidField) {
+                        const sectionId = invalidField.closest('.form-section').id;
+                        formNavItems.forEach(navItem => {
+                            navItem.classList.toggle('active', navItem.getAttribute('data-section') === sectionId);
+                        });
+                        formSections.forEach(section => {
+                            section.classList.toggle('active', section.id === sectionId);
+                        });
+                    }
+                }
+                return isValid;
+            }
+        
+            function generatePropertySummary() {
+                const summaryContent = document.getElementById('propertySummaryContent');
+                const getValue = id => document.getElementById(id)?.value || '';
+                const getSelectedText = id => {
+                    const el = document.getElementById(id);
+                    return el ? el.options[el.selectedIndex].text : '';
+                };
+        
+                const features = [...document.querySelectorAll('input[name="features"]:checked')]
+                    .map(cb => cb.parentElement.querySelector('label')?.textContent.trim() || '');
+        
+                const amenities = [...document.querySelectorAll('input[name="amenities"]:checked')]
+                    .map(cb => cb.parentElement.querySelector('label')?.textContent.trim() || '');
+        
+                const mainImageSrc = mainImagePreview.querySelector('img')?.src || '';
+                const additionalImageSrcs = [...additionalImagesPreview.querySelectorAll('.additional-image-item img')]
+                    .map(img => img.src);
+        
+                summaryContent.innerHTML = `
+                    <div class="property-summary">
+                        <div class="summary-section">
+                            <h4 class="summary-section-title">Basic Information</h4>
+                            <div class="summary-row"><div class="summary-label">Title</div><div class="summary-value">${getValue('propertyTitle')}</div></div>
+                            <div class="summary-row"><div class="summary-label">Type</div><div class="summary-value">${getSelectedText('propertyType')}</div></div>
+                            <div class="summary-row"><div class="summary-label">Listing</div><div class="summary-value">${getSelectedText('listingType')}</div></div>
+                            <div class="summary-row"><div class="summary-label">Price</div><div class="summary-value">${getValue('price')} ${getSelectedText('priceType')}</div></div>
+                            <div class="summary-row"><div class="summary-label">Bedrooms</div><div class="summary-value">${getValue('bedrooms')}</div></div>
+                            <div class="summary-row"><div class="summary-label">Bathrooms</div><div class="summary-value">${getValue('bathrooms')}</div></div>
+                            <div class="summary-row"><div class="summary-label">Size</div><div class="summary-value">${getValue('size')} sq.ft.</div></div>
+                            <div class="summary-row"><div class="summary-label">Address</div><div class="summary-value">${getValue('address')}, ${getValue('city')}, ${getValue('state')} ${getValue('zipCode')}</div></div>
+                        </div>
+        
+                        <div class="summary-section">
+                            <h4 class="summary-section-title">Description</h4>
+                            <div class="summary-value">${getValue('propertyDescription')}</div>
+                        </div>
+        
+                        <div class="summary-section">
+                            <h4 class="summary-section-title">Features</h4>
+                            <ul>${features.map(f => `<li>${f}</li>`).join('')}</ul>
+                        </div>
+        
+                        <div class="summary-section">
+                            <h4 class="summary-section-title">Amenities</h4>
+                            <ul>${amenities.map(a => `<li>${a}</li>`).join('')}</ul>
+                        </div>
+        
+                        <div class="summary-section">
+                            <h4 class="summary-section-title">Images</h4>
+                            <div class="main-image"><img src="${mainImageSrc}" alt="Main Image"></div>
+                            <div class="additional-images">${additionalImageSrcs.map(src => `<img src="${src}" alt="Additional Image">`).join('')}</div>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+        </script>
+        
+</body>
+</html>

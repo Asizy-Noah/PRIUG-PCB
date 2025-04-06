@@ -692,4 +692,72 @@ document.addEventListener('DOMContentLoaded', function() {
   if (window.mapReady && document.getElementById('property-map')) {
     initMap();
   }
+
+  // Function to handle property filtering
+  function initializePropertyFiltering() {
+    // Get all filter tabs and property cards
+    const filterTabs = document.querySelectorAll(".filter-tab")
+    const propertyCards = document.querySelectorAll(".property-card")
+
+    // Skip if elements don't exist
+    if (!filterTabs.length || !propertyCards.length) {
+      console.log("Filter tabs or property cards not found")
+      return
+    }
+
+    console.log("Found filter tabs:", filterTabs.length)
+    console.log("Found property cards:", propertyCards.length)
+
+    // Add click event to each filter tab
+    filterTabs.forEach((tab) => {
+      tab.addEventListener("click", function () {
+        // Get the filter value (property type)
+        const filterValue = this.getAttribute("data-filter")
+        console.log("Filter clicked:", filterValue)
+
+        // Remove active class from all tabs
+        filterTabs.forEach((t) => t.classList.remove("active"))
+
+        // Add active class to clicked tab
+        this.classList.add("active")
+
+        // Filter the property cards
+        propertyCards.forEach((card) => {
+          const cardType = card.getAttribute("data-type")
+          console.log("Card type:", cardType, "comparing with filter:", filterValue)
+
+          // If "all" is selected, show all cards
+          if (filterValue === "all") {
+            card.style.display = "block"
+          } else {
+            // Otherwise, show only cards that match the selected type
+            if (cardType === filterValue) {
+              card.style.display = "block"
+            } else {
+              card.style.display = "none"
+            }
+          }
+        })
+      })
+    })
+
+    // Trigger the "all" filter by default to ensure all properties are visible initially
+    const allFilter = document.querySelector('.filter-tab[data-filter="all"]')
+    if (allFilter) {
+      allFilter.click()
+    }
+  }
+
+  // Declare google variable
+  let google
+})
+
+// Make sure the function is called after DOM is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+  // This ensures the function is called when the page loads
+  initializePropertyFiltering()
+
+
+  
 });
+
