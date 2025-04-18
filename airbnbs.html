@@ -131,10 +131,10 @@
           </div>
        </nav>
     </header>
-  <!-- Navbar End -->
+    <!-- Navbar End -->
 
     <div class="container my-5">
-    
+      
       <!-- Top Rated and Most Booked Section -->
       <div class="airbnb-top-section">
         
@@ -147,41 +147,65 @@
               <!-- Item 1 -->
               <div class="carousel-item active">
                 <span class="status-badge">Available</span>
+                <div class="rating-badge">
+                  <i class="fas fa-star"></i> 4.9
+                </div>
                 <img src="img/carousel-1.jpg" class="d-block w-100" alt="Airbnb 1">
                 <div class="carousel-caption">
                   <h5>Cozy Beach House</h5>
-                  <p>$150/night</p>
-                  <a href="airbnb.html" class="check-btn">Check it out</a>
+                  <div class="property-features">
+                    <span><i class="fas fa-bed"></i> 3 beds</span>
+                    <span><i class="fas fa-bath"></i> 2 baths</span>
+                    <span><i class="fas fa-user-friends"></i> 6 guests</span>
+                  </div>
+                  <p class="price">$150/night</p>
+                  <a href="airbnb.html" class="details-link"><i class='bx bx-link-external'></i> View Details</a>
                 </div>
               </div>
     
               <!-- Item 2 -->
               <div class="carousel-item">
                 <span class="status-badge">Available</span>
+                <div class="rating-badge">
+                  <i class="fas fa-star"></i> 4.7
+                </div>
                 <img src="img/carousel-2.jpg" class="d-block w-100" alt="Airbnb 2">
                 <div class="carousel-caption">
                   <h5>Modern Apartment</h5>
-                  <p>$120/night</p>
-                  <a href="airbnb.html" class="check-btn">Check it out</a>
+                  <div class="property-features">
+                    <span><i class="fas fa-bed"></i> 2 beds</span>
+                    <span><i class="fas fa-bath"></i> 1 bath</span>
+                    <span><i class="fas fa-user-friends"></i> 4 guests</span>
+                  </div>
+                  <p class="price">$120/night</p>
+                  <a href="airbnb.html" class="details-link"><i class='bx bx-link-external'></i> View Details</a>
                 </div>
               </div>
     
               <!-- Item 3 -->
               <div class="carousel-item">
                 <span class="status-badge">Available</span>
+                <div class="rating-badge">
+                  <i class="fas fa-star"></i> 4.8
+                </div>
                 <img src="img/property-2.jpg" class="d-block w-100" alt="Airbnb 3">
                 <div class="carousel-caption">
                   <h5>Luxury Villa</h5>
-                  <p>$350/night</p>
-                  <a href="airbnb.html" class="check-btn">Check it out</a>
+                  <div class="property-features">
+                    <span><i class="fas fa-bed"></i> 5 beds</span>
+                    <span><i class="fas fa-bath"></i> 4 baths</span>
+                    <span><i class="fas fa-user-friends"></i> 10 guests</span>
+                  </div>
+                  <p class="price">$350/night</p>
+                  <a href="airbnb.html" class="details-link"><i class='bx bx-link-external'></i> View Details</a>
                 </div>
               </div>
     
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="airbnb.htmltopRatedCarousel" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#topRatedCarousel" data-bs-slide="prev">
               <span class="carousel-control-prev-icon"></span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="airbnb.htmltopRatedCarousel" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#topRatedCarousel" data-bs-slide="next">
               <span class="carousel-control-next-icon"></span>
             </button>
           </div>
@@ -193,30 +217,54 @@
     
           <div class="most-booked-wrapper-2">
             <!-- Card 1 -->
-          <div class="most-booked-card">
-            <img src="img/property-3.jpg" alt="Most Booked 1">
-            <div class="most-booked-details">
-              <h6>Beachfront Bungalow</h6>
-              <p>$220/night</p>
-              <a href="airbnb.html" class="check-btn">Check it out</a>
-            </div>
-            <div class="most-booked-details-static">
-                <h6>Beachfront Bungalow</h6>
-            </div>
-          </div>
-    
-          <!-- Card 2 -->
-          <div class="most-booked-card">
-            <img src="img/carousel-2.jpg" alt="Most Booked 2">
-            <div class="most-booked-details">
-              <h6>Urban Penthouse</h6>
-              <p>$300/night</p>
-              <a href="airbnb.html" class="check-btn">Check it out</a>
-            </div>
-            <div class="most-booked-details-static">
-                <h6>Urban Penthouse</h6>
+            <div class="most-booked-card">
+              <div class="rating-badge">
+                <i class="fas fa-star"></i> 4.8
               </div>
-          </div>
+              <img src="img/property-3.jpg" alt="Most Booked 1">
+              <div class="most-booked-details">
+                <h6>Beachfront Bungalow</h6>
+                <div class="property-features">
+                  <span><i class="fas fa-bed"></i> 2</span>
+                  <span><i class="fas fa-bath"></i> 1</span>
+                  <span><i class="fas fa-wifi"></i></span>
+                </div>
+                <p class="price">$220/night</p>
+                <a href="airbnb.html" class="details-link"><i class='bx bx-link-external'></i> View Details</a>
+              </div>
+              <div class="most-booked-details-static">
+                <h6>Beachfront Bungalow</h6>
+                <div class="property-features-mini">
+                  <span><i class="fas fa-bed"></i> 2</span>
+                  <span><i class="fas fa-bath"></i> 1</span>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class="most-booked-card">
+              <div class="rating-badge">
+                <i class="fas fa-star"></i> 4.9
+              </div>
+              <img src="img/carousel-2.jpg" alt="Most Booked 2">
+              <div class="most-booked-details">
+                <h6>Urban Penthouse</h6>
+                <div class="property-features">
+                  <span><i class="fas fa-bed"></i> 3</span>
+                  <span><i class="fas fa-bath"></i> 2</span>
+                  <span><i class="fas fa-swimming-pool"></i></span>
+                </div>
+                <p class="price">$300/night</p>
+                <a href="airbnb.html" class="details-link"><i class='bx bx-link-external'></i> View Details</a>
+              </div>
+              <div class="most-booked-details-static">
+                <h6>Urban Penthouse</h6>
+                <div class="property-features-mini">
+                  <span><i class="fas fa-bed"></i> 3</span>
+                  <span><i class="fas fa-bath"></i> 2</span>
+                </div>
+              </div>
+            </div>
           </div>
     
         </div>
@@ -230,93 +278,140 @@
         <!-- Card 1 -->
         <div class="col-md-4 col-sm-6">
           <div class="airbnb-card">
+            <div class="rating-badge">
+              <i class="fas fa-star"></i> 4.7
+            </div>
             <img src="img/property-1.jpg" alt="Property 1">
             <div class="airbnb-details">
               <h6><a href="airbnb.html">3-bedroom Villa in Munyonyo</a></h6>
-              <p>Munyonyo, CO</p>
-              <a href="airbnb.html"><i class='bx bx-link-external'></i></a>
+              <div class="property-features">
+                <span><i class="fas fa-bed"></i> 3 beds</span>
+                <span><i class="fas fa-bath"></i> 2 baths</span>
+              </div>
+              <p class="price">$180/night</p>
+              <a href="airbnb.html" class="details-link"><i class='bx bx-link-external'></i> View Details</a>
             </div>
             <div class="airbnb-details-static">
-                <h6>Mountain Retreat</h6>
-              </div>
+              <h6>3-bedroom Villa</h6>
+              <p>Munyonyo, CO</p>
+            </div>
           </div>
         </div>
     
         <!-- Card 2 -->
         <div class="col-md-4 col-sm-6">
-            <div class="airbnb-card">
-              <img src="img/property-2.jpg" alt="Property 2">
-              <div class="airbnb-details">
-                <h6><a href="airbnb.html">Mountain Retreat</a></h6>
-                <p>New York, NY</p>
-                <a href="airbnb.html"><i class='bx bx-link-external'></i></a>
+          <div class="airbnb-card">
+            <div class="rating-badge">
+              <i class="fas fa-star"></i> 4.8
+            </div>
+            <img src="img/property-2.jpg" alt="Property 2">
+            <div class="airbnb-details">
+              <h6><a href="airbnb.html">Mountain Retreat</a></h6>
+              <div class="property-features">
+                <span><i class="fas fa-bed"></i> 2 beds</span>
+                <span><i class="fas fa-bath"></i> 1 bath</span>
               </div>
-    
-              <div class="airbnb-details-static">
-                <h6>Mountain Retreat</h6>
-              </div>
+              <p class="price">$150/night</p>
+              <a href="airbnb.html" class="details-link"><i class='bx bx-link-external'></i> View Details</a>
+            </div>
+            <div class="airbnb-details-static">
+              <h6>Mountain Retreat</h6>
+              <p>New York, NY</p>
             </div>
           </div>
+        </div>
       
-          <!-- Card 3 -->
-          <div class="col-md-4 col-sm-6">
-            <div class="airbnb-card">
-              <img src="img/property-3.jpg" alt="Property 3">
-              <div class="airbnb-details">
-                <h6><a href="airbnb.html">Mountain Retreat</a></h6>
-                <p>Palm Springs, CA</p>
-                <a href="airbnb.html"><i class='bx bx-link-external'></i></a>
-              </div>
-              <div class="airbnb-details-static">
-                <h6>Mountain Retreat</h6>
-              </div>
-            </div>
-          </div>
-    
-          <!-- Card 1 -->
+        <!-- Card 3 -->
         <div class="col-md-4 col-sm-6">
-            <div class="airbnb-card">
-              <img src="img/property-1.jpg" alt="Property 1">
-              <div class="airbnb-details">
-                <h6><a href="airbnb.html">Mountain Retreat</a></h6>
-                <p>Aspen, CO</p>
-                <a href="airbnb.html"><i class='bx bx-link-external'></i></a>
+          <div class="airbnb-card">
+            <div class="rating-badge">
+              <i class="fas fa-star"></i> 4.9
+            </div>
+            <img src="img/property-3.jpg" alt="Property 3">
+            <div class="airbnb-details">
+              <h6><a href="airbnb.html">Luxury Condo</a></h6>
+              <div class="property-features">
+                <span><i class="fas fa-bed"></i> 3 beds</span>
+                <span><i class="fas fa-bath"></i> 2 baths</span>
               </div>
-              <div class="airbnb-details-static">
-                <h6>Mountain Retreat</h6>
-              </div>
+              <p class="price">$220/night</p>
+              <a href="airbnb.html" class="details-link"><i class='bx bx-link-external'></i> View Details</a>
+            </div>
+            <div class="airbnb-details-static">
+              <h6>Luxury Condo</h6>
+              <p>Palm Springs, CA</p>
             </div>
           </div>
+        </div>
+    
+        <!-- Card 4 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="airbnb-card">
+            <div class="rating-badge">
+              <i class="fas fa-star"></i> 4.6
+            </div>
+            <img src="img/property-1.jpg" alt="Property 1">
+            <div class="airbnb-details">
+              <h6><a href="airbnb.html">Cozy Cabin</a></h6>
+              <div class="property-features">
+                <span><i class="fas fa-bed"></i> 1 bed</span>
+                <span><i class="fas fa-bath"></i> 1 bath</span>
+              </div>
+              <p class="price">$120/night</p>
+              <a href="airbnb.html" class="details-link"><i class='bx bx-link-external'></i> View Details</a>
+            </div>
+            <div class="airbnb-details-static">
+              <h6>Cozy Cabin</h6>
+              <p>Aspen, CO</p>
+            </div>
+          </div>
+        </div>
       
-          <!-- Card 2 -->
-          <div class="col-md-4 col-sm-6">
-              <div class="airbnb-card">
-                <img src="img/property-2.jpg" alt="Property 2">
-                <div class="airbnb-details">
-                    <h6><a href="airbnb.html">Mountain Retreat</a></h6>
-                  <p>New York, NY</p>
-                  <a href="airbnb.html"><i class='bx bx-link-external'></i></a>
-                </div>
-                <div class="airbnb-details-static">
-                    <h6>Mountain Retreat</h6>
-                  </div>
-              </div>
+        <!-- Card 5 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="airbnb-card">
+            <div class="rating-badge">
+              <i class="fas fa-star"></i> 4.7
             </div>
-        
-            <!-- Card 3 -->
-            <div class="col-md-4 col-sm-6">
-              <div class="airbnb-card">
-                <img src="img/property-3.jpg" alt="Property 3">
-                <div class="airbnb-details">
-                    <h6><a href="airbnb.html">Mountain Retreat</a></h6>
-                  <p>Palm Springs, CA</p>
-                  <a href="airbnb.html"><i class='bx bx-link-external'></i></a>
-                </div>
-                <div class="airbnb-details-static">
-                    <h6>Mountain Retreat</h6>
-                  </div>
+            <img src="img/property-2.jpg" alt="Property 2">
+            <div class="airbnb-details">
+              <h6><a href="airbnb.html">City Loft</a></h6>
+              <div class="property-features">
+                <span><i class="fas fa-bed"></i> 2 beds</span>
+                <span><i class="fas fa-bath"></i> 1 bath</span>
               </div>
+              <p class="price">$180/night</p>
+              <a href="airbnb.html" class="details-link"><i class='bx bx-link-external'></i> View Details</a>
             </div>
+            <div class="airbnb-details-static">
+              <h6>City Loft</h6>
+              <p>New York, NY</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Card 6 -->
+        <div class="col-md-4 col-sm-6">
+          <div class="airbnb-card">
+            <div class="rating-badge">
+              <i class="fas fa-star"></i> 4.8
+            </div>
+            <img src="img/property-3.jpg" alt="Property 3">
+            <div class="airbnb-details">
+              <h6><a href="airbnb.html">Beachside Cottage</a></h6>
+              <div class="property-features">
+                <span><i class="fas fa-bed"></i> 2 beds</span>
+                <span><i class="fas fa-bath"></i> 1 bath</span>
+              </div>
+              <p class="price">$190/night</p>
+              <a href="airbnb.html" class="details-link"><i class='bx bx-link-external'></i> View Details</a>
+            </div>
+            <div class="airbnb-details-static">
+              <h6>Beachside Cottage</h6>
+              <p>Palm Springs, CA</p>
+            </div>
+          </div>
+        </div>
       
       </div>
     
