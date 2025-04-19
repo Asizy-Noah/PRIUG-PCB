@@ -188,6 +188,37 @@
                         <div class="invalid-feedback">Please enter a valid phone number</div>
                       </div>
                       
+                      <!-- Account Type Selection -->
+                      <div class="mb-3">
+                        <label for="accountType" class="form-label">Account Type</label>
+                        <div class="account-type-selector">
+                          <div class="form-check form-check-inline account-type-option">
+                            <input class="form-check-input" type="radio" name="accountType" id="userAccount" value="user" checked>
+                            <label class="form-check-label account-type-label" for="userAccount">
+                              <div class="account-type-icon">
+                                <i class="fas fa-user"></i>
+                              </div>
+                              <div class="account-type-text">
+                                <span class="account-type-title">Regular User</span>
+                                <span class="account-type-desc">Browse properties and contact agents</span>
+                              </div>
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline account-type-option">
+                            <input class="form-check-input" type="radio" name="accountType" id="agentAccount" value="agent">
+                            <label class="form-check-label account-type-label" for="agentAccount">
+                              <div class="account-type-icon">
+                                <i class="fas fa-id-badge"></i>
+                              </div>
+                              <div class="account-type-text">
+                                <span class="account-type-title">Property Agent</span>
+                                <span class="account-type-desc">List and manage properties</span>
+                              </div>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      
                       <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <div class="input-group">
@@ -330,12 +361,14 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
   
+  
 
   // Form elements
   const form = document.getElementById("signup-form")
   const passwordInput = document.getElementById("password")
   const togglePassword = document.querySelector(".toggle-password")
   const googleSignInButton = document.getElementById("google-signin")
+  const accountTypeRadios = document.querySelectorAll('input[name="accountType"]')
 
   // Toggle password visibility
   togglePassword.addEventListener("click", function () {
@@ -344,6 +377,21 @@
     this.querySelector("i").classList.toggle("fa-eye")
     this.querySelector("i").classList.toggle("fa-eye-slash")
   })
+
+  // Account type selection styling
+  accountTypeRadios.forEach(radio => {
+    radio.addEventListener('change', function() {
+      // Remove active class from all options
+      document.querySelectorAll('.account-type-option').forEach(option => {
+        option.classList.remove('active');
+      });
+      
+      // Add active class to selected option
+      if (this.checked) {
+        this.closest('.account-type-option').classList.add('active');
+      }
+    });
+  });
 
   // Password validation
   passwordInput.addEventListener("input", () => {
@@ -390,7 +438,7 @@
 
     // Validate phone
     if (!phoneInput.isValidNumber()) {
-      phoneInput.classList.add("is-invalid")
+      document.querySelector("#phone").classList.add("is-invalid")
       isValid = false
     }
 
@@ -408,11 +456,15 @@
 
     // If form is valid, submit
     if (isValid) {
+      // Get selected account type
+      const accountType = document.querySelector('input[name="accountType"]:checked').value;
+      
       // Collect form data
       const formData = {
         fullName: nameInput.value,
         email: emailInput.value,
         phone: phoneInput.getNumber(),
+        accountType: accountType,
         password: passwordInput.value,
         agreeToTerms: termsCheckbox.checked,
       }
@@ -421,7 +473,7 @@
       console.log("Form submitted with data:", formData)
 
       // Show success message
-      showSuccessMessage()
+      showSuccessMessage(accountType)
     }
   })
 
@@ -436,14 +488,18 @@
   }
 
   // Function to show success message
-  function showSuccessMessage() {
+  function showSuccessMessage(accountType) {
     // Create success alert
     const alertElement = document.createElement("div")
     alertElement.className = "alert alert-success alert-dismissible fade show mt-3"
     alertElement.setAttribute("role", "alert")
 
+    const message = accountType === 'agent' 
+      ? "Your agent account has been created! We'll review your application and get back to you soon."
+      : "Account created successfully! Redirecting to login...";
+
     alertElement.innerHTML = `
-      <strong>Success!</strong> Account created successfully! Redirecting to login...
+      <strong>Success!</strong> ${message}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     `
 
@@ -461,13 +517,119 @@
   }
 
   // Initialize Bootstrap Alert (if Bootstrap is not globally available)
-  const bootstrap = window.bootstrap
+  const bootstrap = window.bootstrap || {
+    Alert: class {
+      constructor(element) {
+        this.element = element;
+      }
+      close() {
+        if (this.element && this.element.parentNode) {
+          this.element.parentNode.removeChild(this.element);
+        }
+      }
+    }
+  };
 })
-
-
-        </script>
-        
+    </script>
     
+    <style>
+      /* Account Type Selector Styles */
+      .account-type-selector {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+      }
+      
+      .account-type-option {
+        flex: 1;
+        min-width: 200px;
+        margin: 0 !important;
+      }
+      
+      .account-type-label {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 15px;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        width: 100%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .account-type-option.active .account-type-label,
+      .account-type-label:hover {
+        border-color: #00b98e;
+        background-color: #effdf5;
+      }
+      
+      .account-type-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: #00b98e;
+        color: white;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      
+      .account-type-text {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .account-type-title {
+        font-weight: 600;
+        color: #0e2e50;
+      }
+      
+      .account-type-desc {
+        font-size: 0.8rem;
+        color: #6b7280;
+      }
+      
+      /* Hide the default radio button */
+      .account-type-option input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+      }
+      
+      /* Custom radio indicator */
+      .account-type-option input[type="radio"] + .account-type-label::before {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #e5e7eb;
+        border-radius: 50%;
+        margin-right: 10px;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        transition: all 0.2s ease;
+      }
+      
+      .account-type-option input[type="radio"]:checked + .account-type-label::before {
+        border-color: #00b98e;
+        background-color: #00b98e;
+        box-shadow: inset 0 0 0 4px white;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 576px) {
+        .account-type-selector {
+          flex-direction: column;
+        }
+        
+        .account-type-option {
+          width: 100%;
+        }
+      }
+    </style>
 </body>
 
 </html>
