@@ -971,7 +971,7 @@ a {
   display: flex;
   gap: 20px;
   height: var(--carousel-height);
-  margin-top: 10em;
+  margin-top: 5em;
 }
 
 .carousel-wrapper {
@@ -1268,7 +1268,7 @@ a {
 
 @media (max-width: 1118px) {
   .airbnb-top-section {
-    margin-top: 7em;
+    margin-top: 3em;
   }
 }
 
